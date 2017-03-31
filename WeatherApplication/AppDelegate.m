@@ -19,7 +19,6 @@
     
     // Initialize tab bar controller
     self.tabBarController = [[UITabBarController alloc]init];
-    [WAUserDefaults removeDataAtKey:SelectedLocationsKey];
     MapViewController *mapViewController = [[MapViewController alloc]init];
     ListViewController *listViewController = [[ListViewController alloc]init];
     

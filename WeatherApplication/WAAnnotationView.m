@@ -20,19 +20,22 @@
     self.canShowCallout = YES;
     self.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     
+    [self setTranslatesAutoresizingMaskIntoConstraints:NO];
     
-    UIView *tooltipView = [[UIView alloc]initWithFrame:CGRectMake(0,0, 100, 40)];
+    UIView *tooltipView = [[UIView alloc]initWithFrame:CGRectMake(-50,-20, 100, 40)];
     tooltipView.backgroundColor = [UIColor blackColor];
     tooltipView.layer.cornerRadius = 10;
     tooltipView.layer.masksToBounds = YES;
     
-    UILabel* label1 = [[UILabel alloc]initWithFrame:CGRectMake(0,5, 100, 15)];
+    UILabel* label1 = [[UILabel alloc]init];
+    [label1 setTranslatesAutoresizingMaskIntoConstraints:NO];
     label1.textAlignment = NSTextAlignmentCenter;
     label1.textColor = [UIColor whiteColor];
     label1.font = [label1.font fontWithSize:12];
     label1.text = self.locationName;
     
-    UILabel* label2 = [[UILabel alloc]initWithFrame:CGRectMake(0,20, 100, 15)];
+    UILabel* label2 = [[UILabel alloc]init];
+    [label2 setTranslatesAutoresizingMaskIntoConstraints:NO];
     label2.textAlignment = NSTextAlignmentCenter;
     label2.textColor = [UIColor whiteColor];
     label2.text =  [NSString stringWithFormat:@"%d °C", self.temperature];
@@ -40,7 +43,17 @@
     [tooltipView addSubview:label1];
     [tooltipView addSubview:label2];
     
-     [self addSubview:tooltipView];
+    [[NSLayoutConstraint constraintWithItem:label1 attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:label2 attribute:NSLayoutAttributeHeight multiplier:1 constant:0] setActive: YES];
+    [[NSLayoutConstraint constraintWithItem:label1 attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:tooltipView attribute:NSLayoutAttributeLeft multiplier:1 constant:0] setActive:YES];
+    [[NSLayoutConstraint constraintWithItem:label2 attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:tooltipView attribute:NSLayoutAttributeLeft multiplier:1 constant:0] setActive:YES];
+    [[NSLayoutConstraint constraintWithItem:label1 attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:tooltipView attribute:NSLayoutAttributeWidth multiplier:1 constant:0] setActive: YES];
+    [[NSLayoutConstraint constraintWithItem:label2 attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:label1 attribute:NSLayoutAttributeWidth multiplier:1 constant:0]setActive:YES];
+    [[NSLayoutConstraint constraintWithItem:label1 attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:tooltipView attribute:NSLayoutAttributeTop multiplier:1 constant:0] setActive:YES];
+    [[NSLayoutConstraint constraintWithItem:label2 attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:label1 attribute:NSLayoutAttributeBottom multiplier:1 constant:0] setActive:YES];
+    
+    [[NSLayoutConstraint constraintWithItem:label2 attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:tooltipView attribute:NSLayoutAttributeBottom multiplier:1 constant:0] setActive:YES];
+    
+    [self addSubview:tooltipView];
     return self;
 }
 
