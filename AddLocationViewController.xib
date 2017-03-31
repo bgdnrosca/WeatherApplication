@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddLocationViewController">
+            <connections>
+                <outlet property="searchBar" destination="jCL-PR-VSd" id="z1j-pi-inT"/>
+                <outlet property="tableView" destination="kKf-3f-hgz" id="Hv6-hG-OM6"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <searchBar contentMode="redraw" placeholder="Enter a city name here..." translatesAutoresizingMaskIntoConstraints="NO" id="jCL-PR-VSd">
+                    <rect key="frame" x="10" y="70" width="355" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="ZUt-Mr-Gg1"/>
+                    </constraints>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="yV2-h5-nnc"/>
+                    </connections>
+                </searchBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kKf-3f-hgz">
+                    <rect key="frame" x="10" y="120" width="355" height="537"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Qd4-Kn-sOD"/>
+                        <outlet property="delegate" destination="-1" id="bkz-kX-0FD"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="jCL-PR-VSd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="0A8-qg-hbs"/>
+                <constraint firstAttribute="trailing" secondItem="jCL-PR-VSd" secondAttribute="trailing" constant="10" id="7lh-pw-IUD"/>
+                <constraint firstItem="jCL-PR-VSd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="MCf-vD-Rzi"/>
+                <constraint firstItem="kKf-3f-hgz" firstAttribute="top" secondItem="jCL-PR-VSd" secondAttribute="bottom" id="Mg0-Iz-dQs"/>
+                <constraint firstAttribute="trailing" secondItem="kKf-3f-hgz" secondAttribute="trailing" constant="10" id="O0g-zy-Gq2"/>
+                <constraint firstAttribute="bottom" secondItem="kKf-3f-hgz" secondAttribute="bottom" constant="10" id="p6R-iz-PX1"/>
+                <constraint firstItem="kKf-3f-hgz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="tfP-c0-47d"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
+        </view>
+    </objects>
+</document>
