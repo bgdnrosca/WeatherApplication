@@ -25,7 +25,7 @@ NSMutableArray<WACityModel*> *selectedLocations;
 
 -(void) initializeListOfAvailableLocations
 {
-    selectedLocations = [[NSMutableArray alloc] initWithArray:[WAUserDefaults getArrayAtKey:SelectedLocationsKey]];
+    selectedLocations = [[NSMutableArray alloc] initWithArray:[WAUserDefaults getArrayFromFile:SelectedLocationsKey]];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
@@ -155,7 +155,7 @@ NSMutableArray<WACityModel*> *selectedLocations;
     [super viewWillDisappear:animated];
     
     if (self.isMovingFromParentViewController) {
-        [WAUserDefaults saveArrayAtKey:SelectedLocationsKey ArrayToSave:selectedLocations];
+        [WAUserDefaults saveArrayToFile: SelectedLocationsKey arrayToSave:selectedLocations];
     }
 }
 

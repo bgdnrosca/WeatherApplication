@@ -45,10 +45,10 @@ NSArray<WACityModel*> *locations;
 }
 
 -(void)plusButtonHit {
-//    AddLocationViewController *addLocation = [[AddLocationViewController alloc]init];
-//    [self.navigationController pushViewController:addLocation animated:YES];
-    ObjectiveCViewController *addLocation = [[ObjectiveCViewController alloc]init];
+    AddLocationViewController *addLocation = [[AddLocationViewController alloc]init];
     [self.navigationController pushViewController:addLocation animated:YES];
+//    ObjectiveCViewController *addLocation = [[ObjectiveCViewController alloc]init];
+//    [self.navigationController pushViewController:addLocation animated:YES];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
@@ -66,7 +66,7 @@ NSArray<WACityModel*> *locations;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    NSArray<WACityModel*> *savedLocations = [WAUserDefaults getArrayAtKey:SelectedLocationsKey];
+    NSArray<WACityModel*> *savedLocations = [WAUserDefaults getArrayFromFile:SelectedLocationsKey];
     
     if([self didLocationsListChanged:savedLocations])
     {

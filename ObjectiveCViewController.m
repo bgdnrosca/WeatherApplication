@@ -74,22 +74,19 @@ UIView *bottomView;
     
     [topView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.mas_topLayoutGuide);
-        make.left.mas_equalTo(self.view.mas_left);
-        make.right.mas_equalTo(self.view.mas_right);
+        make.left.and.right.equalTo(self.view);
         make.height.mas_equalTo(self.view.mas_height).dividedBy(6);
         }];
     
     [centerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(topView.mas_bottom);
-        make.left.mas_equalTo(self.view.mas_left);
-        make.right.mas_equalTo(self.view.mas_right);
+        make.left.and.right.equalTo(self.view);
         make.bottom.mas_equalTo(bottomView.mas_top);
     }];
     
     [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(centerView.mas_bottom);
-        make.left.mas_equalTo(self.view.mas_left);
-        make.right.mas_equalTo(self.view.mas_right);
+        make.left.and.right.equalTo(self.view);
         make.height.mas_equalTo(topView);
         make.bottom.mas_equalTo(self.mas_bottomLayoutGuide);
     }];
