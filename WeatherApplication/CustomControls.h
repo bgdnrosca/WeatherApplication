@@ -10,3 +10,4 @@
 #import "WAAnnotationView.h"
 #import "WATableViewCell.h"
 #import "HourlyForecastViewCell.h"
+#import "CustomActivityIndicator.h"
