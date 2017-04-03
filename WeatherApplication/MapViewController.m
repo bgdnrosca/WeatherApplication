@@ -52,6 +52,9 @@ NSArray<WACityModel*> *locations;
     UIBarButtonItem *plusButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(plusButtonHit)];
     self.navigationItem.rightBarButtonItem = plusButton;
     
+    UIBarButtonItem *moreButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(moreButtonHit)];
+    self.navigationItem.leftBarButtonItem = moreButton;
+    
 }
 
 -(void)plusButtonHit {
@@ -60,6 +63,14 @@ NSArray<WACityModel*> *locations;
 //    ObjectiveCViewController *addLocation = [[ObjectiveCViewController alloc]init];
 //    [self.navigationController pushViewController:addLocation animated:YES];
 }
+
+-(void)moreButtonHit {
+//    AddLocationViewController *addLocation = [[AddLocationViewController alloc]init];
+//    [self.navigationController pushViewController:addLocation animated:YES];
+    ObjectiveCViewController *addLocation = [[ObjectiveCViewController alloc]init];
+    [self.navigationController pushViewController:addLocation animated:YES];
+}
+
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {

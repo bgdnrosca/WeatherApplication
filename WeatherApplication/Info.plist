@@ -28,6 +28,8 @@
 		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
+			<key>httpbin.org</key>
+			<string></string>
 			<key>openweathermap.org</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>

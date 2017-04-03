@@ -25,6 +25,7 @@
 - (void) getHourlyWeatherDataForCityId:(long) cityId :(void (^)(WAOpenWeatherHourlyModel* weather))customCompletion;
 - (void) getWeatherForMultipleLocations: (NSArray<WACityModel*>*) locations andCustomCompletion: (void (^)(NSArray<WAOpenWeatherModel*>* weatherList)) customCompletion;
 - (void) getHourlyWeatherForMultipleLocations: (NSArray<WACityModel*>*) locations andCustomCompletion: (void (^)(NSArray<WAOpenWeatherHourlyModel*>* weatherList)) customCompletion;
+- (void) makePostCallWithCustomCompletion :(void (^)(NSString* responseAsString))customCompletion;
 @property (retain, nonatomic) id <WALocationDelegate> delegate;
 @property NSArray<WACityModel*> *availableLocations;
 @end

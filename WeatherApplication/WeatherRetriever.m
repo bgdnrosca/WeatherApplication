@@ -104,4 +104,29 @@
                           });
 }
 
+- (void) makePostCallWithCustomCompletion :(void (^)(NSString* responseAsString))customCompletion{
+    __block NSString *responseAsString;
+    NSString *post = [NSString stringWithFormat:@"Something"];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:@"http://httpbin.org/post"]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if(!error)
+        {
+            responseAsString = [NSString stringWithFormat:@"%@", response];
+            customCompletion(responseAsString);
+            NSLog(@"Connection successful");
+            
+        }else{
+            NSLog(@"Connection failed");
+        }
+    
+    }]resume];
+}
+
 @end

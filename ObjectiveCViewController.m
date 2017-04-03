@@ -8,7 +8,7 @@
 
 #import "ObjectiveCViewController.h"
 #import <Masonry/Masonry.h>
-
+#import "WeatherRetriever.h"
 @interface ObjectiveCViewController ()
 
 @end
@@ -28,7 +28,7 @@ UIView *bottomView;
     bottomView = [[UIView alloc] init];
     
     UILabel *pageTitle = [[UILabel alloc]init];
-    pageTitle.text = @"Page Title";
+    pageTitle.text = @"Test POST call";
     pageTitle.textAlignment = NSTextAlignmentCenter;
     topView.backgroundColor = [UIColor whiteColor];
     [topView addSubview:pageTitle];
@@ -65,7 +65,14 @@ UIView *bottomView;
     
     UILabel *bottomTitle = [[UILabel alloc]init];
     bottomTitle.text = @"Bottom Title";
+    bottomTitle.numberOfLines = 0;
+    bottomTitle.backgroundColor = [UIColor whiteColor];
+    bottomTitle.textAlignment = NSTextAlignmentJustified;
     [bottomView addSubview:bottomTitle];
+    
+    [bottomTitle mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.and.bottom.mas_equalTo(bottomView);
+    }];
     
     [self.view addSubview:topView];
     [self.view addSubview:centerView];
@@ -90,7 +97,13 @@ UIView *bottomView;
         make.bottom.mas_equalTo(self.mas_bottomLayoutGuide);
     }];
     
-    // Do any additional setup after loading the view.
+    [[WeatherRetriever sharedInstance] makePostCallWithCustomCompletion:^(NSString *responseAsString) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            bottomTitle.text = responseAsString;
+        });
+    }];
+        // Do any additional setup after loading the view.
 }
 
 - (void)viewWillAppear:(BOOL)animated{
