@@ -111,10 +111,16 @@ NSMutableArray<WACityModel*> *selectedLocations;
     UITableViewCell *newCell = [tableView cellForRowAtIndexPath:indexPath];
     WACityModel *currentModel = nil;
     if(isSearching)    {
-        currentModel = [filteredLocations objectAtIndex:indexPath.row];
+        if(indexPath.row < filteredLocations.count)
+        {
+            currentModel = [filteredLocations objectAtIndex:indexPath.row];
+        }
     }
     else{
-        currentModel = [selectedLocations objectAtIndex:indexPath.row];
+        if(indexPath.row < selectedLocations.count)
+        {
+            currentModel = [selectedLocations objectAtIndex:indexPath.row];
+        }
     }
     if (newCell.accessoryType == UITableViewCellAccessoryNone) {
         newCell.accessoryType = UITableViewCellAccessoryCheckmark;

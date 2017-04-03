@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		990785781E8E9BEB003C7FBE /* ObjectiveCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990785771E8E9BEB003C7FBE /* ObjectiveCViewController.m */; };
+		990785841E9230AC003C7FBE /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9907857F1E923084003C7FBE /* Masonry.framework */; };
+		990785851E9230AC003C7FBE /* Masonry.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9907857F1E923084003C7FBE /* Masonry.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9935BE6C1E72C6AE0017F539 /* WeatherRetriever.m in Sources */ = {isa = PBXBuildFile; fileRef = 9935BE6B1E72C6AE0017F539 /* WeatherRetriever.m */; };
 		9935BE751E72CCD20017F539 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9935BE741E72CCD20017F539 /* Constants.m */; };
 		993A8E6C1E72CFF7002EF922 /* WAOpenWeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 993A8E6B1E72CFF7002EF922 /* WAOpenWeatherModel.m */; };
@@ -17,6 +20,7 @@
 		995256A91E7C148C007FAD1E /* HourlyForecastViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 995256A71E7C148C007FAD1E /* HourlyForecastViewCell.m */; };
 		995256AA1E7C148C007FAD1E /* HourlyForecastViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 995256A81E7C148C007FAD1E /* HourlyForecastViewCell.xib */; };
 		998A49611E83C04A002B00C4 /* WAUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 998A49601E83C04A002B00C4 /* WAUserDefaults.m */; };
+		999BE1501E8E94DF004AB355 /* Masonry in Resources */ = {isa = PBXBuildFile; fileRef = 999BE14F1E8E94DF004AB355 /* Masonry */; };
 		999C2ADE1E6D764100990C90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 999C2ADD1E6D764100990C90 /* main.m */; };
 		999C2AE11E6D764100990C90 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 999C2AE01E6D764100990C90 /* AppDelegate.m */; };
 		999C2AE91E6D764100990C90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 999C2AE81E6D764100990C90 /* Assets.xcassets */; };
@@ -32,7 +36,55 @@
 		99D85FAF1E7C1DD1000AC27D /* WAOpenWeatherHourlyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D85FAE1E7C1DD1000AC27D /* WAOpenWeatherHourlyModel.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9907857E1E923084003C7FBE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 990785791E923083003C7FBE /* Masonry.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3AED05B71AD59FD40053CC65;
+			remoteInfo = "Masonry iOS";
+		};
+		990785801E923084003C7FBE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 990785791E923083003C7FBE /* Masonry.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3AED06271AD5A1400053CC65;
+			remoteInfo = "Masonry OSX";
+		};
+		990785821E92309C003C7FBE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 990785791E923083003C7FBE /* Masonry.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AED05B61AD59FD40053CC65;
+			remoteInfo = "Masonry iOS";
+		};
+		990785861E9230AC003C7FBE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 990785791E923083003C7FBE /* Masonry.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AED05B61AD59FD40053CC65;
+			remoteInfo = "Masonry iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		990785881E9230AD003C7FBE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				990785851E9230AC003C7FBE /* Masonry.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		990785761E8E9BEB003C7FBE /* ObjectiveCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectiveCViewController.h; sourceTree = "<group>"; };
+		990785771E8E9BEB003C7FBE /* ObjectiveCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectiveCViewController.m; sourceTree = "<group>"; };
+		990785791E923083003C7FBE /* Masonry.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Masonry.xcodeproj; path = Masonry/Masonry.xcodeproj; sourceTree = "<group>"; };
 		9935BE6A1E72C6AE0017F539 /* WeatherRetriever.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherRetriever.h; sourceTree = "<group>"; };
 		9935BE6B1E72C6AE0017F539 /* WeatherRetriever.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherRetriever.m; sourceTree = "<group>"; };
 		9935BE731E72CCD20017F539 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -53,6 +105,7 @@
 		998A49621E83C05F002B00C4 /* WAUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WAUtil.h; sourceTree = "<group>"; };
 		998A49631E83C21F002B00C4 /* WANet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WANet.h; sourceTree = "<group>"; };
 		998A49641E83C267002B00C4 /* CustomControls.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomControls.h; sourceTree = "<group>"; };
+		999BE14F1E8E94DF004AB355 /* Masonry */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Masonry; path = /Users/rosca/Desktop/playground/WeatherApplication/Masonry; sourceTree = "<absolute>"; };
 		999C2AD91E6D764100990C90 /* WeatherApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		999C2ADD1E6D764100990C90 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		999C2ADF1E6D764100990C90 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -82,12 +135,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				990785841E9230AC003C7FBE /* Masonry.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9907857A1E923083003C7FBE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9907857F1E923084003C7FBE /* Masonry.framework */,
+				990785811E923084003C7FBE /* Masonry.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9911761E1E8E8DB40054D03B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9935BE691E72C66F0017F539 /* WANet */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,8 +189,10 @@
 		999C2AD01E6D764100990C90 = {
 			isa = PBXGroup;
 			children = (
+				990785791E923083003C7FBE /* Masonry.xcodeproj */,
 				999C2ADB1E6D764100990C90 /* WeatherApplication */,
 				999C2ADA1E6D764100990C90 /* Products */,
+				9911761E1E8E8DB40054D03B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -196,6 +268,8 @@
 				99CD01A41E8299A5007818D0 /* AddLocationViewController.h */,
 				99CD01A51E8299A5007818D0 /* AddLocationViewController.m */,
 				99CD01A61E8299A5007818D0 /* AddLocationViewController.xib */,
+				990785761E8E9BEB003C7FBE /* ObjectiveCViewController.h */,
+				990785771E8E9BEB003C7FBE /* ObjectiveCViewController.m */,
 			);
 			name = WAViewControllers;
 			path = ..;
@@ -211,10 +285,13 @@
 				999C2AD51E6D764100990C90 /* Sources */,
 				999C2AD61E6D764100990C90 /* Frameworks */,
 				999C2AD71E6D764100990C90 /* Resources */,
+				990785881E9230AD003C7FBE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				990785831E92309C003C7FBE /* PBXTargetDependency */,
+				990785871E9230AC003C7FBE /* PBXTargetDependency */,
 			);
 			name = WeatherApplication;
 			productName = WeatherApplication;
@@ -250,12 +327,35 @@
 			mainGroup = 999C2AD01E6D764100990C90;
 			productRefGroup = 999C2ADA1E6D764100990C90 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9907857A1E923083003C7FBE /* Products */;
+					ProjectRef = 990785791E923083003C7FBE /* Masonry.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				999C2AD81E6D764100990C90 /* WeatherApplication */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9907857F1E923084003C7FBE /* Masonry.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Masonry.framework;
+			remoteRef = 9907857E1E923084003C7FBE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		990785811E923084003C7FBE /* Masonry.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Masonry.framework;
+			remoteRef = 990785801E923084003C7FBE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		999C2AD71E6D764100990C90 /* Resources */ = {
@@ -268,6 +368,7 @@
 				995256A51E7C097E007FAD1E /* WATableViewCell.xib in Resources */,
 				999C2AE91E6D764100990C90 /* Assets.xcassets in Resources */,
 				9952569E1E7C0717007FAD1E /* ListViewController.xib in Resources */,
+				999BE1501E8E94DF004AB355 /* Masonry in Resources */,
 				999C2AF71E6D766B00990C90 /* MapViewController.xib in Resources */,
 				99CD01AC1E82A270007818D0 /* city.list.json in Resources */,
 			);
@@ -282,6 +383,7 @@
 			files = (
 				995256A91E7C148C007FAD1E /* HourlyForecastViewCell.m in Sources */,
 				999C2AE11E6D764100990C90 /* AppDelegate.m in Sources */,
+				990785781E8E9BEB003C7FBE /* ObjectiveCViewController.m in Sources */,
 				999C2AF61E6D766B00990C90 /* MapViewController.m in Sources */,
 				9952569D1E7C0717007FAD1E /* ListViewController.m in Sources */,
 				99C618A61E82A5820010B4DF /* WACityModel.m in Sources */,
@@ -299,6 +401,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		990785831E92309C003C7FBE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Masonry iOS";
+			targetProxy = 990785821E92309C003C7FBE /* PBXContainerItemProxy */;
+		};
+		990785871E9230AC003C7FBE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Masonry iOS";
+			targetProxy = 990785861E9230AC003C7FBE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		999C2AEA1E6D764100990C90 /* LaunchScreen.storyboard */ = {
@@ -404,10 +519,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"HEADER_SEARCH_PATHS[arch=*]" = "";
 				INFOPLIST_FILE = WeatherApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = GRM.WeatherApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -419,6 +536,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = GRM.WeatherApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};

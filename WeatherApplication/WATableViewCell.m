@@ -13,6 +13,7 @@
 @end
 @implementation WATableViewCell
 NSDateFormatter *hourFormat;
+static NSString *cellIdentifier;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -25,6 +26,9 @@ NSDateFormatter *hourFormat;
     [[NSLayoutConstraint constraintWithItem:[self contentView] attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1 constant:0] setActive:YES];
     [[NSLayoutConstraint constraintWithItem:[self contentView] attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1 constant:0] setActive:YES];
     [[NSLayoutConstraint constraintWithItem:[self contentView] attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1 constant:0] setActive:YES];
+    cellIdentifier = @"myCollectionViewCell";
+    [self.hourlyCollection registerNib:[UINib nibWithNibName:@"HourlyForecastViewCell" bundle:nil] forCellWithReuseIdentifier:cellIdentifier];
+
     
     // Initialization code
 }
@@ -51,10 +55,13 @@ NSDateFormatter *hourFormat;
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     WAOpenWeatherModel *cellData = [self.hourlyData objectAtIndex:indexPath.row];
-    static NSString *cellIdentifier = @"myCollectionViewCell";
-    [collectionView registerNib:[UINib nibWithNibName:@"HourlyForecastViewCell" bundle:nil] forCellWithReuseIdentifier:cellIdentifier];
     HourlyForecastViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    
     [[cell hourlyIcon]setImage: cellData.weatherIcon];
+    if([cellData.mainIcon isEqualToString:@"01d"])
+    {
+        [cell performAnimation];
+    }
     [[cell temperatureLabel] setText:[NSString stringWithFormat:@"%d °C", (int)cellData.temperature]];
     [[cell hourLabel]setText:[hourFormat stringFromDate:cellData.currentDate]];
     

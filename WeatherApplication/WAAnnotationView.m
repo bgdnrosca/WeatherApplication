@@ -22,7 +22,7 @@
     
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
     
-    UIView *tooltipView = [[UIView alloc]initWithFrame:CGRectMake(-50,-20, 100, 40)];
+    UIView *tooltipView = [[UIView alloc]initWithFrame:CGRectMake(-50,-40, 100, 40)];
     tooltipView.backgroundColor = [UIColor blackColor];
     tooltipView.layer.cornerRadius = 10;
     tooltipView.layer.masksToBounds = YES;

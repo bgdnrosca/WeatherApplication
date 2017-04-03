@@ -9,6 +9,7 @@
 #import "MapViewController.h"
 #import "WAPointAnnotation.h"
 #import "WAAnnotationView.h"
+#import "ObjectiveCViewController.h"
 
 @interface MapViewController ()
 - (void) updateUIWithNewData:(WAOpenWeatherModel*)model;
@@ -44,7 +45,9 @@ NSArray<WACityModel*> *locations;
 }
 
 -(void)plusButtonHit {
-    AddLocationViewController *addLocation = [[AddLocationViewController alloc]init];
+//    AddLocationViewController *addLocation = [[AddLocationViewController alloc]init];
+//    [self.navigationController pushViewController:addLocation animated:YES];
+    ObjectiveCViewController *addLocation = [[ObjectiveCViewController alloc]init];
     [self.navigationController pushViewController:addLocation animated:YES];
 }
 

@@ -18,8 +18,8 @@ static NSDateFormatter *dateFormatter;
 
 - (instancetype) init{
     self = [super init];
-    self.title = @"List View";
-    self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"List View" image:[UIImage imageNamed:@"TabBarList"] selectedImage:[UIImage imageNamed:@"TabBarList"]];
+    self.title = @"Hourly View";
+    self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Hourly View" image:[UIImage imageNamed:@"TabBarList"] selectedImage:[UIImage imageNamed:@"TabBarList"]];
     self.weatherRetriever = [WeatherRetriever sharedInstance];
     self.weatherRetriever.delegate = self;
     dateFormatter = [[NSDateFormatter alloc]init];
@@ -75,7 +75,7 @@ static NSDateFormatter *dateFormatter;
             [dailyList addObject:dailyWeather];
             dailyWeather = [[NSMutableArray alloc]init];
             [dailyWeather addObject:model];
-            currentDate += 1;
+            currentDate = modelDay;
         }
     }
     // Add the last day to the list
