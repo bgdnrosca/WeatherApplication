@@ -71,7 +71,6 @@ UIView *bottomView;
     [self.view addSubview:centerView];
     [self.view addSubview:bottomView];
     
-    
     [topView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.mas_topLayoutGuide);
         make.left.and.right.equalTo(self.view);

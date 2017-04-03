@@ -32,6 +32,9 @@
                 <constraint firstItem="lt1-Xc-tLs" firstAttribute="leading" secondItem="S1a-m4-zZd" secondAttribute="leading" constant="5" id="h2k-f7-qZF"/>
                 <constraint firstAttribute="bottom" secondItem="lt1-Xc-tLs" secondAttribute="bottom" constant="5" id="jQY-P3-hDq"/>
             </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <nil key="simulatedBottomBarMetrics"/>
             <point key="canvasLocation" x="10.5" y="44.5"/>
         </view>
     </objects>

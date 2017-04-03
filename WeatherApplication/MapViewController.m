@@ -10,6 +10,7 @@
 #import "WAPointAnnotation.h"
 #import "WAAnnotationView.h"
 #import "ObjectiveCViewController.h"
+#import <Masonry/Masonry.h>
 
 @interface MapViewController ()
 - (void) updateUIWithNewData:(WAOpenWeatherModel*)model;
@@ -17,11 +18,11 @@
 - (void) updateMapWithNewData:(NSArray<WAOpenWeatherModel*>*) weatherData;
 - (bool) didLocationsListChanged: (NSArray*)newLocations;
 @property NSMutableArray<WACityModel*>* locations;
+@property (nonatomic, strong) CustomActivityIndicator* loadingSpinner;
 @end
 
 @implementation MapViewController
 NSArray<WACityModel*> *locations;
-
 - (void)viewDidLoad {
     [super viewDidLoad];
         self.title = @"Map View";
@@ -39,9 +40,18 @@ NSArray<WACityModel*> *locations;
         [self.locationManager startUpdatingLocation];
     
     }
+    
+    
+    self.loadingSpinner = [[CustomActivityIndicator alloc]init];
+    [self.view addSubview:self.loadingSpinner];
+    [self.loadingSpinner mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.and.bottom.mas_equalTo(self.view);
+    }];
+    [self.loadingSpinner startProgress];
     // Do any additional setup after loading the view from its nib.
     UIBarButtonItem *plusButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(plusButtonHit)];
     self.navigationItem.rightBarButtonItem = plusButton;
+    
 }
 
 -(void)plusButtonHit {
@@ -57,7 +67,7 @@ NSArray<WACityModel*> *locations;
     {
         return;
     }
-    
+    [[self loadingSpinner] startProgress];
     [self.weatherRetriever getWeatherForLatitude:newLocation.coordinate.latitude
                                                    :newLocation.coordinate.longitude
                                                 :^(WAOpenWeatherModel* weather){
@@ -66,6 +76,8 @@ NSArray<WACityModel*> *locations;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [[self loadingSpinner] startProgress];
     NSArray<WACityModel*> *savedLocations = [WAUserDefaults getArrayFromFile:SelectedLocationsKey];
     
     if([self didLocationsListChanged:savedLocations])
@@ -100,6 +112,7 @@ NSArray<WACityModel*> *locations;
         self.descriptionLabel.text = model.mainString;
         self.temperatureLabel.text = [NSString stringWithFormat:@"%d °C", (int)model.temperature];
         self.weatherIcon.image = model.weatherIcon;
+        [self.loadingSpinner stopProgress];
     });
 }
 
@@ -126,6 +139,7 @@ NSArray<WACityModel*> *locations;
             [self.mapView addAnnotation:point];
         }
         [self zoomToFitAnnotations:YES];
+        [self.loadingSpinner stopProgress];
     });
 }
 

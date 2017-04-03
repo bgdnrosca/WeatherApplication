@@ -11,6 +11,7 @@
 #import "WANet.h"
 #import "WAUtil.h"
 #import "AddLocationViewController.h"
+#import "CustomControls.h"
 
 @interface MapViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate, WALocationDelegate>
 @property (strong, nonatomic) CLLocationManager *locationManager;
