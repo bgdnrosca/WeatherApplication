@@ -44,7 +44,7 @@
     [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:url]completionHandler:^(NSData* _Nullable data, NSURLResponse* _Nullable response, NSError* _Nullable error){
         if(!error)
         {
-            responseAsString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            responseAsString = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
             dictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
             WAOpenWeatherModel *weather = [[WAOpenWeatherModel alloc]initWithDictionary:dictionary];
                         customCompletion(weather, responseAsString);

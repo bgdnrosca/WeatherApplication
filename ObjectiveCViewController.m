@@ -143,6 +143,7 @@ CustomActivityIndicator *loadingSpinner;
     }];
     
     statusLabel = [[UILabel alloc]init];
+    statusLabel.textAlignment = NSTextAlignmentCenter;
     [bottomView addSubview:statusLabel];
     
     [statusLabel mas_makeConstraints:^(MASConstraintMaker *make) {

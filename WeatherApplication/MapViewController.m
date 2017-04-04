@@ -23,6 +23,7 @@
 
 @implementation MapViewController
 NSArray<WACityModel*> *locations;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
         self.title = @"Map View";
@@ -89,6 +90,7 @@ NSArray<WACityModel*> *locations;
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     NSArray<WACityModel*> *savedLocations = [WAUserDefaults getArrayFromFile:SelectedLocationsKey];
+    self.tabBarController.tabBar.hidden = NO;
     
     if([self didLocationsListChanged:savedLocations])
     {
