@@ -12,5 +12,5 @@
 @property (nonatomic,strong) IBOutlet UIImageView *hourlyIcon;
 @property (nonatomic, strong) IBOutlet UILabel *hourLabel;
 @property (nonatomic,strong) IBOutlet UILabel *temperatureLabel;
-- (void) performAnimation;
+- (void) performAnimation: (bool) rotate;
 @end

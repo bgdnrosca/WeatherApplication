@@ -19,6 +19,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (strong, nonatomic) IBOutlet UILabel *temperatureLabel;
 @property (strong, nonatomic) IBOutlet UILabel *locationLabel;
+@property (strong, nonatomic) IBOutlet UIView *currentWeatherView;
 @property (strong, nonatomic) IBOutlet UIImageView *weatherIcon;
 @property (strong, nonatomic) WeatherRetriever *weatherRetriever;
+@property (strong, nonatomic) UIDynamicAnimator *animator;
 @end

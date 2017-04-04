@@ -20,6 +20,7 @@ NSMutableArray<WACityModel*> *selectedLocations;
     availableLocations = [[NSMutableArray alloc]init];
     filteredLocations = [[NSMutableArray alloc] init];
     [self initializeListOfAvailableLocations];
+    self.view.backgroundColor = [UIColor clearColor];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -90,7 +91,7 @@ NSMutableArray<WACityModel*> *selectedLocations;
     }else{
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
-    
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 

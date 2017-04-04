@@ -17,12 +17,15 @@
 - (void) zoomToFitAnnotations:(BOOL)animated;
 - (void) updateMapWithNewData:(NSArray<WAOpenWeatherModel*>*) weatherData;
 - (bool) didLocationsListChanged: (NSArray*)newLocations;
+- (void) imageTap:(UIImageView*) sender;
+- (void) addAnimationToWeatherLabels;
 @property NSMutableArray<WACityModel*>* locations;
 @property (nonatomic, strong) CustomActivityIndicator* loadingSpinner;
 @end
 
 @implementation MapViewController
 NSArray<WACityModel*> *locations;
+int imageTapCount;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,7 +45,9 @@ NSArray<WACityModel*> *locations;
     
     }
     
-    
+    self.weatherIcon.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageTap:)];
+    [self.weatherIcon addGestureRecognizer: tapGesture];
     self.loadingSpinner = [[CustomActivityIndicator alloc]init];
     [self.view addSubview:self.loadingSpinner];
     [self.loadingSpinner mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -53,23 +58,38 @@ NSArray<WACityModel*> *locations;
     UIBarButtonItem *plusButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(plusButtonHit)];
     self.navigationItem.rightBarButtonItem = plusButton;
     
-    UIBarButtonItem *moreButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(moreButtonHit)];
-    self.navigationItem.leftBarButtonItem = moreButton;
+    
+    //PARALLAX thing
+    // Set vertical effect
+    UIInterpolatingMotionEffect *verticalMotionEffect =
+    [[UIInterpolatingMotionEffect alloc]
+     initWithKeyPath:@"center.y"
+     type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
+    verticalMotionEffect.minimumRelativeValue = @(-20);
+    verticalMotionEffect.maximumRelativeValue = @(20);
+    
+    // Set horizontal effect
+    UIInterpolatingMotionEffect *horizontalMotionEffect =
+    [[UIInterpolatingMotionEffect alloc]
+     initWithKeyPath:@"center.x"
+     type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
+    horizontalMotionEffect.minimumRelativeValue = @(-20);
+    horizontalMotionEffect.maximumRelativeValue = @(20);
+    
+    // Create group to combine both
+    UIMotionEffectGroup *group = [UIMotionEffectGroup new];
+    group.motionEffects = @[horizontalMotionEffect, verticalMotionEffect];
+    // Add both effects to your view
+    self.view.backgroundColor = [UIColor clearColor];
+    [self.view addMotionEffect:group];
     
 }
 
 -(void)plusButtonHit {
     AddLocationViewController *addLocation = [[AddLocationViewController alloc]init];
-    [self.navigationController pushViewController:addLocation animated:YES];
+    [self.navigationController pushViewController:addLocation animated:NO];
 //    ObjectiveCViewController *addLocation = [[ObjectiveCViewController alloc]init];
 //    [self.navigationController pushViewController:addLocation animated:YES];
-}
-
--(void)moreButtonHit {
-//    AddLocationViewController *addLocation = [[AddLocationViewController alloc]init];
-//    [self.navigationController pushViewController:addLocation animated:YES];
-    ObjectiveCViewController *addLocation = [[ObjectiveCViewController alloc]init];
-    [self.navigationController pushViewController:addLocation animated:YES];
 }
 
 
@@ -87,11 +107,28 @@ NSArray<WACityModel*> *locations;
                                                    }];
 }
 
+- (void) addAnimationToWeatherLabels{
+    self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.currentWeatherView];
+    
+    UIGravityBehavior* gravityBehavior =
+    [[UIGravityBehavior alloc] initWithItems:@[self.weatherIcon, self.locationLabel, self.temperatureLabel, self.descriptionLabel]];
+    UICollisionBehavior* collisionBehavior =
+    [[UICollisionBehavior alloc] initWithItems:@[self.weatherIcon, self.locationLabel, self.temperatureLabel, self.descriptionLabel]];
+    collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
+    UIDynamicItemBehavior *elasticityBehavior =
+    [[UIDynamicItemBehavior alloc] initWithItems:@[self.weatherIcon, self.locationLabel, self.temperatureLabel, self.descriptionLabel]];
+    elasticityBehavior.elasticity = 1.0f;
+    
+    [self.animator addBehavior:gravityBehavior];
+    [self.animator addBehavior:collisionBehavior];
+    [self.animator addBehavior:elasticityBehavior];
+}
+
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     NSArray<WACityModel*> *savedLocations = [WAUserDefaults getArrayFromFile:SelectedLocationsKey];
     self.tabBarController.tabBar.hidden = NO;
-    
+    imageTapCount = 0;
     if([self didLocationsListChanged:savedLocations])
     {
         [[self loadingSpinner] startProgress];
@@ -121,11 +158,13 @@ NSArray<WACityModel*> *locations;
 
 - (void) updateUIWithNewData:(WAOpenWeatherModel*)model{
     dispatch_async(dispatch_get_main_queue(), ^{
+        [self.animator removeAllBehaviors];
         self.locationLabel.text = model.locationName;
         self.descriptionLabel.text = model.mainString;
         self.temperatureLabel.text = [NSString stringWithFormat:@"%d °C", (int)model.temperature];
         self.weatherIcon.image = model.weatherIcon;
         [self.loadingSpinner stopProgress];
+        [self addAnimationToWeatherLabels];
     });
 }
 
@@ -133,7 +172,14 @@ NSArray<WACityModel*> *locations;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void) imageTap:(UIImageView *)sender{
+    imageTapCount++;
+    if(imageTapCount == 2)
+    {
+        ObjectiveCViewController *addLocation = [[ObjectiveCViewController alloc]init];
+        [self.navigationController pushViewController:addLocation animated:YES];
+    }
+}
 
 /*___________________________________________________________________________________________________________________________*/
 /*                                                                                                                           */

@@ -30,7 +30,9 @@
     self.tabBarController.viewControllers = controllers;
     self.window.rootViewController = self.tabBarController;
     
+    self.window.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"horizon"]];
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

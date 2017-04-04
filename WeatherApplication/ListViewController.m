@@ -34,6 +34,7 @@ static NSDateFormatter *dateFormatter;
     [self.tableView setDelegate: self];
     [self.tableView reloadData];
     [self.tableView registerNib:[UINib nibWithNibName:@"WATableViewCell"  bundle:nil] forCellReuseIdentifier:@"myCell"];
+    self.view.backgroundColor = [UIColor clearColor];
 }
 
 - (void) didUpdateLocationsList:(NSArray<WACityModel *> *)newLocationsList{
@@ -114,7 +115,7 @@ static NSDateFormatter *dateFormatter;
     WAOpenWeatherModel *dailyModel = [dailyForecast firstObject];
     cell.cityLabel.text = [NSString stringWithFormat:@"%@ - %@", [dateFormatter stringFromDate:[dailyModel currentDate]],[dailyModel locationName]];
     [cell setCollectionData:dailyForecast];
-    
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 

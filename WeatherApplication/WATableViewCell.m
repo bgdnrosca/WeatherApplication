@@ -57,14 +57,11 @@ static NSString *cellIdentifier;
     WAOpenWeatherModel *cellData = [self.hourlyData objectAtIndex:indexPath.row];
     HourlyForecastViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    [[cell hourlyIcon]setImage: cellData.weatherIcon];
-    if([cellData.mainIcon isEqualToString:@"01d"])
-    {
-        [cell performAnimation];
-    }
+    [[cell hourlyIcon]setImage: cellData.weatherIcon];    
+    [cell performAnimation: [cellData.mainIcon isEqualToString:@"01d"]];
     [[cell temperatureLabel] setText:[NSString stringWithFormat:@"%d °C", (int)cellData.temperature]];
     [[cell hourLabel]setText:[hourFormat stringFromDate:cellData.currentDate]];
-    
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
     
 }

@@ -24,15 +24,26 @@
     [super prepareForReuse];
 }
 
-- (void) performAnimation{
+- (void) performAnimation: (BOOL) rotate{
     NSAssert(self.hourlyIcon.image != nil, @"me");
-    [UIView animateWithDuration:0.5
-                          delay:0
-                          options:UIViewAnimationOptionRepeat | UIViewAnimationOptionAutoreverse | UIViewAnimationOptionBeginFromCurrentState
-                     animations:^{
-                         self.hourlyIcon.transform = CGAffineTransformScale(CGAffineTransformMakeRotation(M_PI), 1.3, 1.3);
-                     }
-                     completion:nil];
+    if(rotate)
+    {
+        [UIView animateWithDuration:0.5
+                              delay:0
+                            options:UIViewAnimationOptionRepeat | UIViewAnimationOptionAutoreverse | UIViewAnimationOptionBeginFromCurrentState
+                         animations:^{
+                             self.hourlyIcon.transform = CGAffineTransformMakeRotation(M_PI);
+                         }
+                         completion:nil];
+    }else{
+        [UIView animateWithDuration:0.5
+                              delay:0
+                            options:UIViewAnimationOptionRepeat | UIViewAnimationOptionAutoreverse | UIViewAnimationOptionBeginFromCurrentState
+                         animations:^{
+                             self.hourlyIcon.transform = CGAffineTransformMakeScale(1.3,1.3);
+                         }
+                         completion:nil];
+    }
 
 }
 
