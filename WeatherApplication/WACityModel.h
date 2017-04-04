@@ -18,3 +18,8 @@
 @property (nonatomic) double longitude;
 @property (nonatomic) bool isChecked;
 @end
+
+@interface WAServerResponse : NSObject
+@property (nonatomic) NSString *responseAsString;
+@property (nonatomic) NSError *error;
+@end

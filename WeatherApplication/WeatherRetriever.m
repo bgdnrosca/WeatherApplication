@@ -36,7 +36,7 @@
     }]resume];
     }
 
-- (void) getWeatherForLatitude : (double) latitude : (double) longitude : (void (^)(WAOpenWeatherModel *weather)) customCompletion{
+- (void) getWeatherForLatitude : (double) latitude : (double) longitude : (void (^)(WAOpenWeatherModel *weather, NSString *responseAsString)) customCompletion{
     __block NSString* responseAsString;
     __block NSDictionary* dictionary;
     
@@ -44,10 +44,10 @@
     [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:url]completionHandler:^(NSData* _Nullable data, NSURLResponse* _Nullable response, NSError* _Nullable error){
         if(!error)
         {
-            responseAsString = [NSString stringWithFormat:@"%@", response];
+            responseAsString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             dictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
             WAOpenWeatherModel *weather = [[WAOpenWeatherModel alloc]initWithDictionary:dictionary];
-                        customCompletion(weather);
+                        customCompletion(weather, responseAsString);
         }
     }]resume];
 }
@@ -104,7 +104,7 @@
                           });
 }
 
-- (void) makePostCallWithCustomCompletion :(void (^)(NSString* responseAsString))customCompletion{
+- (void) makePostCallWithCustomCompletion :(void (^)(NSString* responseAsString, NSError * _Nullable error))customCompletion{
     __block NSString *responseAsString;
     NSString *post = [NSString stringWithFormat:@"Something"];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
@@ -118,15 +118,40 @@
     [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if(!error)
         {
-            responseAsString = [NSString stringWithFormat:@"%@", response];
-            customCompletion(responseAsString);
+            responseAsString =  [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             NSLog(@"Connection successful");
             
         }else{
             NSLog(@"Connection failed");
         }
-    
+        customCompletion(responseAsString, error);
     }]resume];
 }
+
+- (void) makePutCallWithCustomCompletion :(void (^)(NSString* responseAsString, NSError * _Nullable error))customCompletion{
+    __block NSString *responseAsString;
+    NSString *post = [NSString stringWithFormat:@"Something"];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:@"http://httpbin.org/put"]];
+    [request setHTTPMethod:@"PUT"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if(!error)
+        {
+            responseAsString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSLog(@"Connection successful");
+            
+        }else{
+            NSLog(@"Connection failed");
+        }
+        customCompletion(responseAsString, error);
+        
+    }]resume];
+}
+
 
 @end

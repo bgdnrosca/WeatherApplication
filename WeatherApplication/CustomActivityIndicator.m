@@ -13,6 +13,7 @@ UIImageView *runningMan;
 
 - (instancetype) init{
     self = [super init];
+    self.layer.hidden = YES;
     self.backgroundColor = [UIColor whiteColor];
     runningMan = [[UIImageView alloc]init];
     NSMutableArray *images = [[NSMutableArray alloc]init];

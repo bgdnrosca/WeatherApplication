@@ -81,7 +81,7 @@ NSArray<WACityModel*> *locations;
     [[self loadingSpinner] startProgress];
     [self.weatherRetriever getWeatherForLatitude:newLocation.coordinate.latitude
                                                    :newLocation.coordinate.longitude
-                                                :^(WAOpenWeatherModel* weather){
+                                                :^(WAOpenWeatherModel* weather, NSString* responseAsString){
                                                     [self updateUIWithNewData: weather];
                                                    }];
 }
