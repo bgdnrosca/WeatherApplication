@@ -14,4 +14,6 @@ extern NSString *const OpenWeatherMapGetWeatherForLocationUrl;
 extern NSString *const OpenWeatherMapBaseImageUrl;
 extern NSString *const OpenWeatherGetHourlyWeatherForCityIdUrl;
 extern NSString *const SelectedLocationsKey;
+extern NSString *const CustomServiceUUID;
+extern NSString *const CustomCharacteristicUUID;
 @end

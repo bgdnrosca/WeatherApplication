@@ -11,6 +11,7 @@
 		990785841E9230AC003C7FBE /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9907857F1E923084003C7FBE /* Masonry.framework */; };
 		990785851E9230AC003C7FBE /* Masonry.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9907857F1E923084003C7FBE /* Masonry.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9907858E1E9251BE003C7FBE /* CustomActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9907858D1E9251BE003C7FBE /* CustomActivityIndicator.m */; };
+		990785AE1E94F60E003C7FBE /* BluetoothClientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990785AD1E94F60E003C7FBE /* BluetoothClientViewController.m */; };
 		9935BE6C1E72C6AE0017F539 /* WeatherRetriever.m in Sources */ = {isa = PBXBuildFile; fileRef = 9935BE6B1E72C6AE0017F539 /* WeatherRetriever.m */; };
 		9935BE751E72CCD20017F539 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9935BE741E72CCD20017F539 /* Constants.m */; };
 		993A8E6C1E72CFF7002EF922 /* WAOpenWeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 993A8E6B1E72CFF7002EF922 /* WAOpenWeatherModel.m */; };
@@ -88,6 +89,8 @@
 		990785791E923083003C7FBE /* Masonry.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Masonry.xcodeproj; path = Masonry/Masonry.xcodeproj; sourceTree = "<group>"; };
 		9907858C1E9251BE003C7FBE /* CustomActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomActivityIndicator.h; sourceTree = "<group>"; };
 		9907858D1E9251BE003C7FBE /* CustomActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomActivityIndicator.m; sourceTree = "<group>"; };
+		990785AC1E94F60E003C7FBE /* BluetoothClientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluetoothClientViewController.h; sourceTree = "<group>"; };
+		990785AD1E94F60E003C7FBE /* BluetoothClientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BluetoothClientViewController.m; sourceTree = "<group>"; };
 		9935BE6A1E72C6AE0017F539 /* WeatherRetriever.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherRetriever.h; sourceTree = "<group>"; };
 		9935BE6B1E72C6AE0017F539 /* WeatherRetriever.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherRetriever.m; sourceTree = "<group>"; };
 		9935BE731E72CCD20017F539 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -275,6 +278,8 @@
 				99CD01A61E8299A5007818D0 /* AddLocationViewController.xib */,
 				990785761E8E9BEB003C7FBE /* ObjectiveCViewController.h */,
 				990785771E8E9BEB003C7FBE /* ObjectiveCViewController.m */,
+				990785AC1E94F60E003C7FBE /* BluetoothClientViewController.h */,
+				990785AD1E94F60E003C7FBE /* BluetoothClientViewController.m */,
 			);
 			name = WAViewControllers;
 			path = ..;
@@ -389,6 +394,7 @@
 			files = (
 				995256A91E7C148C007FAD1E /* HourlyForecastViewCell.m in Sources */,
 				999C2AE11E6D764100990C90 /* AppDelegate.m in Sources */,
+				990785AE1E94F60E003C7FBE /* BluetoothClientViewController.m in Sources */,
 				990785781E8E9BEB003C7FBE /* ObjectiveCViewController.m in Sources */,
 				999C2AF61E6D766B00990C90 /* MapViewController.m in Sources */,
 				9952569D1E7C0717007FAD1E /* ListViewController.m in Sources */,

@@ -11,6 +11,7 @@
 #import "WAAnnotationView.h"
 #import "ObjectiveCViewController.h"
 #import <Masonry/Masonry.h>
+#import "BluetoothClientViewController.h"
 
 @interface MapViewController ()
 - (void) updateUIWithNewData:(WAOpenWeatherModel*)model;
@@ -176,7 +177,9 @@ int imageTapCount;
     imageTapCount++;
     if(imageTapCount == 2)
     {
-        ObjectiveCViewController *addLocation = [[ObjectiveCViewController alloc]init];
+//        ObjectiveCViewController *addLocation = [[ObjectiveCViewController alloc]init];
+//        [self.navigationController pushViewController:addLocation animated:YES];
+        BluetoothClientViewController *addLocation = [[BluetoothClientViewController alloc]init];
         [self.navigationController pushViewController:addLocation animated:YES];
     }
 }

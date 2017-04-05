@@ -27,7 +27,6 @@ CustomActivityIndicator *loadingSpinner;
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor clearColor];
     self.tabBarController.tabBar.hidden = YES;
-    self.view.backgroundColor = [UIColor whiteColor];
     
     centerView = [[UIView alloc]init];
     topView = [[UIView alloc] init];
