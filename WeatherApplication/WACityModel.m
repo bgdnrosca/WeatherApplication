@@ -36,7 +36,7 @@
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super init]) {
-        self.cityId = [aDecoder decodeInt64ForKey:@"cityId"];
+        self.cityId = (long)[aDecoder decodeInt64ForKey:@"cityId"];
         self.cityName = [aDecoder decodeObjectForKey:@"cityName" ];
         self.country =  [aDecoder decodeObjectForKey:@"country"];
         self.isChecked = [aDecoder decodeBoolForKey:@"isChecked"];

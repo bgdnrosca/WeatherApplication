@@ -28,6 +28,8 @@
 NSArray<WACityModel*> *locations;
 int imageTapCount;
 
+static void *currentWeatherContext = &currentWeatherContext;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
         self.title = @"Map View";
@@ -84,6 +86,63 @@ int imageTapCount;
     self.view.backgroundColor = [UIColor clearColor];
     [self.view addMotionEffect:group];
     
+    self.weatherForCurrentLocation = [[WAOpenWeatherModel alloc] init];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    NSArray<WACityModel*> *savedLocations = [WAUserDefaults getArrayFromFile:SelectedLocationsKey];
+    self.tabBarController.tabBar.hidden = NO;
+    imageTapCount = 0;
+    if([self didLocationsListChanged:savedLocations])
+    {
+        [[self loadingSpinner] startProgress];
+        [self.weatherRetriever getWeatherForMultipleLocations:locations
+                                          andCustomCompletion: ^(NSArray<WAOpenWeatherModel*>* weatherList){
+                                              [self updateMapWithNewData:weatherList];
+                                              [self.weatherRetriever.delegate didUpdateLocationsList:locations];
+                                          }];
+        [self.mapView removeAnnotations: self.mapView.annotations];
+    }
+    
+    //Implement KVO for current weather
+    [self.weatherForCurrentLocation addObserver:self forKeyPath:@"locationName" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:currentWeatherContext];
+    [self.weatherForCurrentLocation addObserver:self forKeyPath:@"temperature" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:currentWeatherContext];
+    [self.weatherForCurrentLocation addObserver:self forKeyPath:@"mainString" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:currentWeatherContext];
+    [self.weatherForCurrentLocation addObserver:self forKeyPath:@"weatherIcon" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:currentWeatherContext];
+
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+    if(context == currentWeatherContext){
+        if([keyPath isEqualToString:@"locationName"])
+        {
+            self.locationLabel.text = [change objectForKey:NSKeyValueChangeNewKey];
+        }
+        else if([keyPath isEqualToString:@"temperature"])
+        {
+            double newTemperature = [change[NSKeyValueChangeNewKey] doubleValue];
+            self.temperatureLabel.text = [NSString stringWithFormat:@"%d °C", (int)newTemperature];
+        }
+        else if([keyPath isEqualToString:@"mainString"])
+        {
+            self.descriptionLabel.text = [change objectForKey:NSKeyValueChangeNewKey];
+        }
+        else if([keyPath isEqualToString:@"weatherIcon"])
+        {
+            self.weatherIcon.image = [change objectForKey:NSKeyValueChangeNewKey];
+        }
+    }
+}
+
+-(void) viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.weatherForCurrentLocation removeObserver:self forKeyPath:@"locationName"];
+    [self.weatherForCurrentLocation removeObserver:self forKeyPath:@"temperature"];
+    [self.weatherForCurrentLocation removeObserver:self forKeyPath:@"mainString"];
+    [self.weatherForCurrentLocation removeObserver:self forKeyPath:@"weatherIcon"];
+
 }
 
 -(void)plusButtonHit {
@@ -125,23 +184,6 @@ int imageTapCount;
     [self.animator addBehavior:elasticityBehavior];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    NSArray<WACityModel*> *savedLocations = [WAUserDefaults getArrayFromFile:SelectedLocationsKey];
-    self.tabBarController.tabBar.hidden = NO;
-    imageTapCount = 0;
-    if([self didLocationsListChanged:savedLocations])
-    {
-        [[self loadingSpinner] startProgress];
-        [self.weatherRetriever getWeatherForMultipleLocations:locations
-                                        andCustomCompletion: ^(NSArray<WAOpenWeatherModel*>* weatherList){
-                                                                 [self updateMapWithNewData:weatherList];
-                                                                 [self.weatherRetriever.delegate didUpdateLocationsList:locations];
-                                                             }];
-        [self.mapView removeAnnotations: self.mapView.annotations];
-    }
-}
-
 - (bool) didLocationsListChanged: (NSArray*)newLocations{
     if(newLocations && locations && [newLocations count] == [locations count])
     {
@@ -160,10 +202,14 @@ int imageTapCount;
 - (void) updateUIWithNewData:(WAOpenWeatherModel*)model{
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.animator removeAllBehaviors];
-        self.locationLabel.text = model.locationName;
-        self.descriptionLabel.text = model.mainString;
-        self.temperatureLabel.text = [NSString stringWithFormat:@"%d °C", (int)model.temperature];
-        self.weatherIcon.image = model.weatherIcon;
+        self.weatherForCurrentLocation.mainString = model.mainString;
+        self.weatherForCurrentLocation.locationName = model.locationName;
+        self.weatherForCurrentLocation.temperature = model.temperature;
+        self.weatherForCurrentLocation.weatherIcon = model.weatherIcon;
+//        self.locationLabel.text = model.locationName;
+//        self.descriptionLabel.text = model.mainString;
+//        self.temperatureLabel.text = [NSString stringWithFormat:@"%d °C", (int)model.temperature];
+//        self.weatherIcon.image = model.weatherIcon;
         [self.loadingSpinner stopProgress];
         [self addAnimationToWeatherLabels];
     });
@@ -179,8 +225,10 @@ int imageTapCount;
     {
 //        ObjectiveCViewController *addLocation = [[ObjectiveCViewController alloc]init];
 //        [self.navigationController pushViewController:addLocation animated:YES];
-        BluetoothClientViewController *addLocation = [[BluetoothClientViewController alloc]init];
-        [self.navigationController pushViewController:addLocation animated:YES];
+//        BluetoothClientViewController *addLocation = [[BluetoothClientViewController alloc]init];
+//        [self.navigationController pushViewController:addLocation animated:YES];
+        DynamicTypeViewController *dynamicTypeViewController = [[DynamicTypeViewController alloc] init];
+        [self.navigationController pushViewController:dynamicTypeViewController animated:YES];
     }
 }
 

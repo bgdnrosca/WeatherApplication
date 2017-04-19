@@ -35,6 +35,8 @@
 		999C2AF71E6D766B00990C90 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 999C2AF51E6D766B00990C90 /* MapViewController.xib */; };
 		999C2B0B1E6DA31600990C90 /* WAPointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 999C2B0A1E6DA31600990C90 /* WAPointAnnotation.m */; };
 		999C2B0E1E6DA59000990C90 /* WAAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 999C2B0D1E6DA59000990C90 /* WAAnnotationView.m */; };
+		99A6A0A51EA762E30098C41E /* DynamicTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A6A0A31EA762E30098C41E /* DynamicTypeViewController.m */; };
+		99A6A0A61EA762E30098C41E /* DynamicTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99A6A0A41EA762E30098C41E /* DynamicTypeViewController.xib */; };
 		99C618A61E82A5820010B4DF /* WACityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C618A51E82A5820010B4DF /* WACityModel.m */; };
 		99CD01A71E8299A5007818D0 /* AddLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CD01A51E8299A5007818D0 /* AddLocationViewController.m */; };
 		99CD01A81E8299A5007818D0 /* AddLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99CD01A61E8299A5007818D0 /* AddLocationViewController.xib */; };
@@ -138,6 +140,9 @@
 		999C2B0A1E6DA31600990C90 /* WAPointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAPointAnnotation.m; sourceTree = "<group>"; };
 		999C2B0C1E6DA59000990C90 /* WAAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAAnnotationView.h; sourceTree = "<group>"; };
 		999C2B0D1E6DA59000990C90 /* WAAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAAnnotationView.m; sourceTree = "<group>"; };
+		99A6A0A21EA762E30098C41E /* DynamicTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicTypeViewController.h; sourceTree = "<group>"; };
+		99A6A0A31EA762E30098C41E /* DynamicTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicTypeViewController.m; sourceTree = "<group>"; };
+		99A6A0A41EA762E30098C41E /* DynamicTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DynamicTypeViewController.xib; sourceTree = "<group>"; };
 		99C618A41E82A5820010B4DF /* WACityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WACityModel.h; sourceTree = "<group>"; };
 		99C618A51E82A5820010B4DF /* WACityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WACityModel.m; sourceTree = "<group>"; };
 		99CD01A41E8299A5007818D0 /* AddLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddLocationViewController.h; sourceTree = "<group>"; };
@@ -308,6 +313,9 @@
 				990785771E8E9BEB003C7FBE /* ObjectiveCViewController.m */,
 				990785AC1E94F60E003C7FBE /* BluetoothClientViewController.h */,
 				990785AD1E94F60E003C7FBE /* BluetoothClientViewController.m */,
+				99A6A0A21EA762E30098C41E /* DynamicTypeViewController.h */,
+				99A6A0A31EA762E30098C41E /* DynamicTypeViewController.m */,
+				99A6A0A41EA762E30098C41E /* DynamicTypeViewController.xib */,
 			);
 			name = WAViewControllers;
 			path = ..;
@@ -405,6 +413,7 @@
 				999C2AEC1E6D764100990C90 /* LaunchScreen.storyboard in Resources */,
 				99CD01A81E8299A5007818D0 /* AddLocationViewController.xib in Resources */,
 				995256A51E7C097E007FAD1E /* WATableViewCell.xib in Resources */,
+				99A6A0A61EA762E30098C41E /* DynamicTypeViewController.xib in Resources */,
 				999C2AE91E6D764100990C90 /* Assets.xcassets in Resources */,
 				9952569E1E7C0717007FAD1E /* ListViewController.xib in Resources */,
 				999BE1501E8E94DF004AB355 /* Masonry in Resources */,
@@ -433,6 +442,7 @@
 				999C2B0E1E6DA59000990C90 /* WAAnnotationView.m in Sources */,
 				9935BE6C1E72C6AE0017F539 /* WeatherRetriever.m in Sources */,
 				99D85FAF1E7C1DD1000AC27D /* WAOpenWeatherHourlyModel.m in Sources */,
+				99A6A0A51EA762E30098C41E /* DynamicTypeViewController.m in Sources */,
 				998A49611E83C04A002B00C4 /* WAUserDefaults.m in Sources */,
 				993A8E6C1E72CFF7002EF922 /* WAOpenWeatherModel.m in Sources */,
 				999C2B0B1E6DA31600990C90 /* WAPointAnnotation.m in Sources */,

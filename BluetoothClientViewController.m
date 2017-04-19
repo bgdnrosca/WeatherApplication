@@ -509,7 +509,8 @@ CustomActivityIndicator *spinner;
     CGFloat widthChange  = (endFrame.origin.x - startFrame.origin.x) * signCorrection;
     CGFloat heightChange = (endFrame.origin.y - startFrame.origin.y) * signCorrection;
     
-    CGFloat sizeChange = UIInterfaceOrientationIsLandscape([self interfaceOrientation]) ? widthChange : heightChange;
+    
+    CGFloat sizeChange = UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]) ? widthChange : heightChange;
     
     CGRect newContainerFrame = [[self view] frame];
     newContainerFrame.size.height += sizeChange;

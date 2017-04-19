@@ -24,7 +24,7 @@
     [super prepareForReuse];
 }
 
-- (void) performAnimation: (BOOL) rotate{
+- (void) performAnimation: (bool) rotate{
     NSAssert(self.hourlyIcon.image != nil, @"me");
     if(rotate)
     {

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DynamicTypeViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pm-gt-0QY">
+                    <rect key="frame" x="20" y="100" width="335" height="21"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CL4-6l-abC">
+                    <rect key="frame" x="20" y="141" width="335" height="18"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CvF-tW-Cpc">
+                    <rect key="frame" x="20" y="179" width="335" height="21"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZvS-QG-riC">
+                    <rect key="frame" x="20" y="220" width="335" height="14.5"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abl-3K-0nk">
+                    <rect key="frame" x="20" y="254.5" width="335" height="13.5"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l12-cM-ic8">
+                    <rect key="frame" x="20" y="288" width="335" height="16"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="5pm-gt-0QY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="1L1-ff-des"/>
+                <constraint firstItem="abl-3K-0nk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="68e-fK-TK4"/>
+                <constraint firstItem="5pm-gt-0QY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="7N6-hG-iBz"/>
+                <constraint firstItem="CL4-6l-abC" firstAttribute="top" secondItem="5pm-gt-0QY" secondAttribute="bottom" constant="20" id="7vg-pt-tCE"/>
+                <constraint firstItem="abl-3K-0nk" firstAttribute="top" secondItem="ZvS-QG-riC" secondAttribute="bottom" constant="20" id="DOf-JP-vlK"/>
+                <constraint firstAttribute="trailing" secondItem="abl-3K-0nk" secondAttribute="trailing" constant="20" id="JX4-ti-xdW"/>
+                <constraint firstItem="CvF-tW-Cpc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="L8v-hF-taK"/>
+                <constraint firstItem="CvF-tW-Cpc" firstAttribute="top" secondItem="CL4-6l-abC" secondAttribute="bottom" constant="20" id="OgA-pn-1eq"/>
+                <constraint firstItem="l12-cM-ic8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="SQr-J3-wFq"/>
+                <constraint firstItem="ZvS-QG-riC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="cGO-6R-kFN"/>
+                <constraint firstItem="ZvS-QG-riC" firstAttribute="top" secondItem="CvF-tW-Cpc" secondAttribute="bottom" constant="20" id="gkz-ji-NLe"/>
+                <constraint firstItem="l12-cM-ic8" firstAttribute="top" secondItem="abl-3K-0nk" secondAttribute="bottom" constant="20" id="i4h-qv-xBP"/>
+                <constraint firstAttribute="trailing" secondItem="l12-cM-ic8" secondAttribute="trailing" constant="20" id="ihk-Td-JSn"/>
+                <constraint firstAttribute="trailing" secondItem="5pm-gt-0QY" secondAttribute="trailing" constant="20" id="mJB-Wk-898"/>
+                <constraint firstAttribute="trailing" secondItem="CvF-tW-Cpc" secondAttribute="trailing" constant="20" id="mux-I9-i9G"/>
+                <constraint firstAttribute="trailing" secondItem="ZvS-QG-riC" secondAttribute="trailing" constant="20" id="pst-q6-x5r"/>
+                <constraint firstAttribute="trailing" secondItem="CL4-6l-abC" secondAttribute="trailing" constant="20" id="w1K-Ud-fHL"/>
+                <constraint firstItem="CL4-6l-abC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="yiB-vK-UpB"/>
+            </constraints>
+            <point key="canvasLocation" x="34.5" y="53.5"/>
+        </view>
+    </objects>
+</document>

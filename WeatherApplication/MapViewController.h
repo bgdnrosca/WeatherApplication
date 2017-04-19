@@ -12,6 +12,7 @@
 #import "WAUtil.h"
 #import "AddLocationViewController.h"
 #import "CustomControls.h"
+#import "DynamicTypeViewController.h"
 
 @interface MapViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate, WALocationDelegate>
 @property (strong, nonatomic) CLLocationManager *locationManager;
@@ -23,4 +24,5 @@
 @property (strong, nonatomic) IBOutlet UIImageView *weatherIcon;
 @property (strong, nonatomic) WeatherRetriever *weatherRetriever;
 @property (strong, nonatomic) UIDynamicAnimator *animator;
+@property (strong, nonatomic) WAOpenWeatherModel *weatherForCurrentLocation;
 @end

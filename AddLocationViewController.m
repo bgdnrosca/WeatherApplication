@@ -16,7 +16,6 @@ NSMutableArray<WACityModel*> *selectedLocations;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.loadingSpinner startAnimating];
     availableLocations = [[NSMutableArray alloc]init];
     filteredLocations = [[NSMutableArray alloc] init];
     [self initializeListOfAvailableLocations];
@@ -49,7 +48,7 @@ NSMutableArray<WACityModel*> *selectedLocations;
             [availableLocations addObject:model];
         }
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.loadingSpinner stopAnimating];
+            [self.activtyIndicator stopProgress];
             [self.tableView reloadData];
         });
     });

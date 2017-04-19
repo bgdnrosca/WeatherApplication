@@ -10,7 +10,7 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #import "Constants.h"
 #import "PHFComposeBarView.h"
-@interface BluetoothClientViewController : UIViewController<CBCentralManagerDelegate, CBPeripheralDelegate, CBPeripheralManagerDelegate>
+@interface BluetoothClientViewController : UIViewController<CBCentralManagerDelegate, CBPeripheralDelegate, CBPeripheralManagerDelegate, PHFComposeBarViewDelegate>
 
 //Properties for central role
 @property (strong, nonatomic) CBCentralManager *centralManager;
