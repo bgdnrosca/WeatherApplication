@@ -12,6 +12,10 @@
 		990785851E9230AC003C7FBE /* Masonry.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9907857F1E923084003C7FBE /* Masonry.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9907858E1E9251BE003C7FBE /* CustomActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9907858D1E9251BE003C7FBE /* CustomActivityIndicator.m */; };
 		990785AE1E94F60E003C7FBE /* BluetoothClientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990785AD1E94F60E003C7FBE /* BluetoothClientViewController.m */; };
+		993293971E9FA5390015DD0B /* PHFComposeBarView_Button.m in Sources */ = {isa = PBXBuildFile; fileRef = 993293921E9FA5390015DD0B /* PHFComposeBarView_Button.m */; };
+		993293981E9FA5390015DD0B /* PHFComposeBarView_TextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 993293941E9FA5390015DD0B /* PHFComposeBarView_TextView.m */; };
+		993293991E9FA5390015DD0B /* PHFComposeBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 993293961E9FA5390015DD0B /* PHFComposeBarView.m */; };
+		9932939C1E9FA5730015DD0B /* PHFDelegateChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 9932939B1E9FA5730015DD0B /* PHFDelegateChain.m */; };
 		9935BE6C1E72C6AE0017F539 /* WeatherRetriever.m in Sources */ = {isa = PBXBuildFile; fileRef = 9935BE6B1E72C6AE0017F539 /* WeatherRetriever.m */; };
 		9935BE751E72CCD20017F539 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9935BE741E72CCD20017F539 /* Constants.m */; };
 		993A8E6C1E72CFF7002EF922 /* WAOpenWeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 993A8E6B1E72CFF7002EF922 /* WAOpenWeatherModel.m */; };
@@ -91,6 +95,14 @@
 		9907858D1E9251BE003C7FBE /* CustomActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomActivityIndicator.m; sourceTree = "<group>"; };
 		990785AC1E94F60E003C7FBE /* BluetoothClientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluetoothClientViewController.h; sourceTree = "<group>"; };
 		990785AD1E94F60E003C7FBE /* BluetoothClientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BluetoothClientViewController.m; sourceTree = "<group>"; };
+		993293911E9FA5390015DD0B /* PHFComposeBarView_Button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PHFComposeBarView_Button.h; path = ComposeBar/Classes/PHFComposeBarView_Button.h; sourceTree = "<group>"; };
+		993293921E9FA5390015DD0B /* PHFComposeBarView_Button.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PHFComposeBarView_Button.m; path = ComposeBar/Classes/PHFComposeBarView_Button.m; sourceTree = "<group>"; };
+		993293931E9FA5390015DD0B /* PHFComposeBarView_TextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PHFComposeBarView_TextView.h; path = ComposeBar/Classes/PHFComposeBarView_TextView.h; sourceTree = "<group>"; };
+		993293941E9FA5390015DD0B /* PHFComposeBarView_TextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PHFComposeBarView_TextView.m; path = ComposeBar/Classes/PHFComposeBarView_TextView.m; sourceTree = "<group>"; };
+		993293951E9FA5390015DD0B /* PHFComposeBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PHFComposeBarView.h; path = ComposeBar/Classes/PHFComposeBarView.h; sourceTree = "<group>"; };
+		993293961E9FA5390015DD0B /* PHFComposeBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PHFComposeBarView.m; path = ComposeBar/Classes/PHFComposeBarView.m; sourceTree = "<group>"; };
+		9932939A1E9FA5730015DD0B /* PHFDelegateChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHFDelegateChain.h; sourceTree = "<group>"; };
+		9932939B1E9FA5730015DD0B /* PHFDelegateChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHFDelegateChain.m; sourceTree = "<group>"; };
 		9935BE6A1E72C6AE0017F539 /* WeatherRetriever.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherRetriever.h; sourceTree = "<group>"; };
 		9935BE6B1E72C6AE0017F539 /* WeatherRetriever.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherRetriever.m; sourceTree = "<group>"; };
 		9935BE731E72CCD20017F539 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -164,6 +176,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		993293901E9FA4F30015DD0B /* ComposeBar */ = {
+			isa = PBXGroup;
+			children = (
+				9932939A1E9FA5730015DD0B /* PHFDelegateChain.h */,
+				9932939B1E9FA5730015DD0B /* PHFDelegateChain.m */,
+				993293911E9FA5390015DD0B /* PHFComposeBarView_Button.h */,
+				993293921E9FA5390015DD0B /* PHFComposeBarView_Button.m */,
+				993293931E9FA5390015DD0B /* PHFComposeBarView_TextView.h */,
+				993293941E9FA5390015DD0B /* PHFComposeBarView_TextView.m */,
+				993293951E9FA5390015DD0B /* PHFComposeBarView.h */,
+				993293961E9FA5390015DD0B /* PHFComposeBarView.m */,
+			);
+			name = ComposeBar;
+			sourceTree = "<group>";
+		};
 		9935BE691E72C66F0017F539 /* WANet */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +222,7 @@
 		999C2AD01E6D764100990C90 = {
 			isa = PBXGroup;
 			children = (
+				993293901E9FA4F30015DD0B /* ComposeBar */,
 				990785791E923083003C7FBE /* Masonry.xcodeproj */,
 				999C2ADB1E6D764100990C90 /* WeatherApplication */,
 				999C2ADA1E6D764100990C90 /* Products */,
@@ -393,6 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				995256A91E7C148C007FAD1E /* HourlyForecastViewCell.m in Sources */,
+				9932939C1E9FA5730015DD0B /* PHFDelegateChain.m in Sources */,
 				999C2AE11E6D764100990C90 /* AppDelegate.m in Sources */,
 				990785AE1E94F60E003C7FBE /* BluetoothClientViewController.m in Sources */,
 				990785781E8E9BEB003C7FBE /* ObjectiveCViewController.m in Sources */,
@@ -400,16 +429,19 @@
 				9952569D1E7C0717007FAD1E /* ListViewController.m in Sources */,
 				99C618A61E82A5820010B4DF /* WACityModel.m in Sources */,
 				999C2ADE1E6D764100990C90 /* main.m in Sources */,
+				993293991E9FA5390015DD0B /* PHFComposeBarView.m in Sources */,
 				999C2B0E1E6DA59000990C90 /* WAAnnotationView.m in Sources */,
 				9935BE6C1E72C6AE0017F539 /* WeatherRetriever.m in Sources */,
 				99D85FAF1E7C1DD1000AC27D /* WAOpenWeatherHourlyModel.m in Sources */,
 				998A49611E83C04A002B00C4 /* WAUserDefaults.m in Sources */,
 				993A8E6C1E72CFF7002EF922 /* WAOpenWeatherModel.m in Sources */,
 				999C2B0B1E6DA31600990C90 /* WAPointAnnotation.m in Sources */,
+				993293981E9FA5390015DD0B /* PHFComposeBarView_TextView.m in Sources */,
 				9935BE751E72CCD20017F539 /* Constants.m in Sources */,
 				995256A41E7C097E007FAD1E /* WATableViewCell.m in Sources */,
 				99CD01A71E8299A5007818D0 /* AddLocationViewController.m in Sources */,
 				9907858E1E9251BE003C7FBE /* CustomActivityIndicator.m in Sources */,
+				993293971E9FA5390015DD0B /* PHFComposeBarView_Button.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

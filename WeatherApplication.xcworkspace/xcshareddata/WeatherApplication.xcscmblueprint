@@ -4,12 +4,16 @@
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "8DBBA4E01D4E171B35866610ACEAACAB4FFCFC27" : 9223372036854775807,
     "AD864E20AF66978643C07432366F1DDAE6CB241E" : 9223372036854775807,
+    "DD20A1A48C66B5213E0FEBB87A95EF51D6C6F3E8" : 9223372036854775807,
     "6FC4832245A6A8E50F2A782F20A8B58A46BD1FEB" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "8D2E2B8A-A9EA-4AB9-9398-F3A551F5E02E",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "8DBBA4E01D4E171B35866610ACEAACAB4FFCFC27" : "WeatherApplication\/ComposeBar\/",
     "AD864E20AF66978643C07432366F1DDAE6CB241E" : "WeatherApplication\/",
+    "DD20A1A48C66B5213E0FEBB87A95EF51D6C6F3E8" : "WeatherApplication\/AFNetworking\/",
     "6FC4832245A6A8E50F2A782F20A8B58A46BD1FEB" : "WeatherApplication\/Masonry\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "WeatherApplication",
@@ -22,9 +26,19 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6FC4832245A6A8E50F2A782F20A8B58A46BD1FEB"
     },
     {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/fphilipe\/PHFComposeBarView.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8DBBA4E01D4E171B35866610ACEAACAB4FFCFC27"
+    },
+    {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/bgdnrosca\/WeatherApplication.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "AD864E20AF66978643C07432366F1DDAE6CB241E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/AFNetworking\/AFNetworking.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DD20A1A48C66B5213E0FEBB87A95EF51D6C6F3E8"
     }
   ]
 }
