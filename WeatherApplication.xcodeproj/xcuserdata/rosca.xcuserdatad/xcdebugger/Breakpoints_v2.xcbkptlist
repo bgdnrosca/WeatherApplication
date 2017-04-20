@@ -52,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeatherApplication/ListViewController.m"
-            timestampString = "513001188.363693"
+            timestampString = "514386646.410305"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "-processHourlyResponse:"
             landmarkType = "7">
          </BreakpointContent>

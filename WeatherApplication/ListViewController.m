@@ -8,12 +8,15 @@
 
 #import "ListViewController.h"
 #import "WATableViewCell.h"
+#import "WeatherRetriever.h"
+#import "WAUserDefaults.h"
 
 
 @interface ListViewController ()
 @property (strong, nonatomic) NSMutableArray *tableData;
 @property (strong, nonatomic) WeatherRetriever *weatherRetriever;
 - (NSArray<WAOpenWeatherModel*>*) processHourlyResponse: (WAOpenWeatherHourlyModel*) hourlyModel;
+- (void) handleUpdatedLocationList:(NSNotification *)notification;
 @end
 
 @implementation ListViewController
@@ -24,13 +27,18 @@ static NSDateFormatter *dateFormatter;
     self.title = @"Hourly View";
     self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Hourly View" image:[UIImage imageNamed:@"TabBarList"] selectedImage:[UIImage imageNamed:@"TabBarList"]];
     self.weatherRetriever = [WeatherRetriever sharedInstance];
-    self.weatherRetriever.delegate = self;
     dateFormatter = [[NSDateFormatter alloc]init];
     [dateFormatter setDateFormat:@"MMM dd, yyy"];
     self.tableData = [[NSMutableArray alloc]init];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleUpdatedLocationList:)
+                                                 name:LocationListChangedNotification
+                                               object:nil];
     return self;
 }
-
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:LocationListChangedNotification object:nil];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView setDataSource:self];
@@ -40,7 +48,9 @@ static NSDateFormatter *dateFormatter;
     self.view.backgroundColor = [UIColor clearColor];
 }
 
-- (void) didUpdateLocationsList:(NSArray<WACityModel *> *)newLocationsList{
+
+- (void) handleUpdatedLocationList:(NSNotification *)notification {
+    NSArray<WACityModel*> *newLocationsList = [WAUserDefaults getArrayFromFile:SelectedLocationsKey];
     [self.weatherRetriever getHourlyWeatherForMultipleLocations:newLocationsList andCustomCompletion: ^(NSArray<WAOpenWeatherHourlyModel*>* hourlyList){
         [self.tableData removeAllObjects];
         for(WAOpenWeatherHourlyModel* weatherForCity in hourlyList)

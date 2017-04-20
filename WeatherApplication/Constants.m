@@ -18,4 +18,5 @@ NSString *const CustomServiceUUID = @"171bd16c-ab9c-4bb8-96e6-71aa5a1ee70d";
 NSString *const ReadCharacteristicUUID = @"5d6207f4-856d-4c5d-a0d9-3698c936765f";
 NSString *const WriteCharacteristicUUID = @"5d6207f4-856c-4c5d-a0d9-3698c936765f";
 NSString *const EndOfMessage = @"0000\n";
+NSString *const LocationListChangedNotification = @"LocationListChangedNotification";
 @end

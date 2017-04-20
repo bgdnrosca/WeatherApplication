@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WeatherRetriever.h"
 
-@interface ListViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, WALocationDelegate>
+@interface ListViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) NSMutableArray *hourlyList;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @end

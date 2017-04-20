@@ -18,4 +18,5 @@ extern NSString *const CustomServiceUUID;
 extern NSString *const ReadCharacteristicUUID;
 extern NSString *const WriteCharacteristicUUID;
 extern NSString *const EndOfMessage;
+extern NSString *const LocationListChangedNotification;
 @end

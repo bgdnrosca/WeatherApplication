@@ -91,7 +91,29 @@ static void *currentWeatherContext = &currentWeatherContext;
     [self.view addMotionEffect:group];
     
     self.weatherForCurrentLocation = [[WAOpenWeatherModel alloc] init];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didChangePreferredContentSize:)
+                                                 name:UIContentSizeCategoryDidChangeNotification
+                                               object:nil];
+
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self configureView];
+}
+
+- (void)configureView
+{
+    self.descriptionLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
+    self.locationLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
+    self.temperatureLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -108,6 +130,8 @@ static void *currentWeatherContext = &currentWeatherContext;
                                               [self.weatherRetriever.delegate didUpdateLocationsList:locations];
                                           }];
         [self.mapView removeAnnotations: self.mapView.annotations];
+        [[NSNotificationCenter defaultCenter] postNotificationName:LocationListChangedNotification
+                                                            object:self];
     }
     
     //Implement KVO for current weather
@@ -116,6 +140,11 @@ static void *currentWeatherContext = &currentWeatherContext;
     [self.weatherForCurrentLocation addObserver:self forKeyPath:@"mainString" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:currentWeatherContext];
     [self.weatherForCurrentLocation addObserver:self forKeyPath:@"weatherIcon" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:currentWeatherContext];
 
+}
+
+- (void)didChangePreferredContentSize:(NSNotification *)notification
+{
+    [self configureView];
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
