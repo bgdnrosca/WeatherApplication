@@ -7,6 +7,7 @@
 //
 
 #import "HourlyForecastViewCell.h"
+#import <ReactiveObjC/ReactiveObjC.h>
 
 @interface HourlyForecastViewCell()
 
@@ -14,8 +15,33 @@
 
 @implementation HourlyForecastViewCell
 
+- (instancetype) init{
+    self = [super init];
+    return self;
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
+    NSDateFormatter *hourFormat = [[NSDateFormatter alloc]init];
+    [hourFormat setDateFormat:@"HH:mm"];
+    RAC(self, hourlyIcon.image) = RACObserve(self, weatherModel.weatherIcon);
+    RAC(self, temperatureLabel.text) = [RACObserve(self, weatherModel.temperature) map:^id(NSNumber* value){
+        {
+            return [NSString stringWithFormat:@"%d °C", (int)[value doubleValue]];
+        }
+    }];
+    RAC(self, temperatureLabel.text) = [RACObserve(self, weatherModel.temperature) map:^id(NSNumber* value){
+        {
+            return [NSString stringWithFormat:@"%d °C", (int)[value doubleValue]];
+        }
+    }];
+    RAC(self, hourLabel.text) = [RACObserve(self, weatherModel.currentDate) map:^id(NSDate* value){
+        {
+            return [hourFormat stringFromDate:value];
+        }
+    }];
+    
+    [self performAnimation: [self.weatherModel.mainIcon isEqualToString:@"01d"]];
     [self.contentView setTranslatesAutoresizingMaskIntoConstraints:NO];
 }
 
@@ -25,7 +51,6 @@
 }
 
 - (void) performAnimation: (bool) rotate{
-    NSAssert(self.hourlyIcon.image != nil, @"me");
     if(rotate)
     {
         [UIView animateWithDuration:0.5

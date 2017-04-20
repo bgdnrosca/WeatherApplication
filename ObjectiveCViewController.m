@@ -8,6 +8,7 @@
 
 #import "ObjectiveCViewController.h"
 #import <Masonry/Masonry.h>
+#import <ReactiveObjC/ReactiveObjC.h>
 #import "WeatherRetriever.h"
 @interface ObjectiveCViewController ()
 - (void) postButtonClicked:(UIButton*)sender;
@@ -49,26 +50,90 @@ CustomActivityIndicator *loadingSpinner;
     //Add post and put buttons
     
     UIButton *postButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [postButton addTarget:self action:@selector(postButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     postButton.layer.cornerRadius = 5;
     [postButton setTitle:@"Post" forState:UIControlStateNormal];
     [postButton setBackgroundColor:[UIColor blackColor]];
     [postButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
     
+    postButton.rac_command = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+        [loadingSpinner startProgress];
+        [[WeatherRetriever sharedInstance] makePostCallWithCustomCompletion:^(NSString *responseAsString, NSError *error) {
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                responseLabel.text = responseAsString;
+                [NSThread sleepForTimeInterval:2];
+                if(error)
+                {
+                    statusLabel.text = @"Status: Error";
+                    statusLabel.textColor = [UIColor redColor];
+                }
+                else{
+                    statusLabel.text = @"Status: OK";
+                    statusLabel.textColor = [UIColor greenColor];
+                }
+                [loadingSpinner stopProgress];
+            });
+        }];
+        return [RACSignal empty];
+    }];
+
+    
     UIButton *putButton = [UIButton buttonWithType:UIButtonTypeCustom];
     putButton.layer.cornerRadius = 5;
-    [putButton addTarget:self action:@selector(putButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [putButton setTitle:@"Put" forState:UIControlStateNormal];
     [putButton setBackgroundColor:[UIColor blackColor]];
     [putButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
     
+    putButton.rac_command = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+        [loadingSpinner startProgress];
+        [[WeatherRetriever sharedInstance] makePutCallWithCustomCompletion:^(NSString *responseAsString, NSError *error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                responseLabel.text = responseAsString;
+                [NSThread sleepForTimeInterval:2];
+                if(error)
+                {
+                    statusLabel.text = @"Status: Error";
+                    statusLabel.textColor = [UIColor redColor];
+                }
+                else{
+                    statusLabel.text = @"Status: OK";
+                    statusLabel.textColor = [UIColor greenColor];
+                }
+                [loadingSpinner stopProgress];
+            });
+        }];
+        return [RACSignal empty];
+    }];
+    
+    
     UIButton *getButton = [UIButton buttonWithType:UIButtonTypeCustom];
     getButton.layer.cornerRadius = 5;
-    [getButton addTarget:self action:@selector(getButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [getButton setTitle:@"Get" forState:UIControlStateNormal];
     [getButton setBackgroundColor:[UIColor blackColor]];
     [getButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+    
+    getButton.rac_command = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+        [loadingSpinner startProgress];
+        [[WeatherRetriever sharedInstance] getWeatherForLatitude:35 :30 :^(WAOpenWeatherModel *weather, NSString *responseAsString) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                responseLabel.text = responseAsString;
+                [NSThread sleepForTimeInterval:2];
+                if(!weather)
+                {
+                    statusLabel.text = @"Status: Error";
+                    statusLabel.textColor = [UIColor redColor];
+                }
+                else{
+                    statusLabel.text = @"Status: OK";
+                    statusLabel.textColor = [UIColor greenColor];
+                }
+                [loadingSpinner stopProgress];
+            });
+        }];
 
+        return [RACSignal empty];
+    }];
+    
     
     [firstItem addSubview:postButton];
     [firstItem addSubview:putButton];
@@ -179,64 +244,11 @@ CustomActivityIndicator *loadingSpinner;
 }
 
 - (void)putButtonClicked:(UIButton*)sender{
-    [loadingSpinner startProgress];
-    [[WeatherRetriever sharedInstance] makePutCallWithCustomCompletion:^(NSString *responseAsString, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            responseLabel.text = responseAsString;
-            [NSThread sleepForTimeInterval:2];
-            if(error)
-            {
-                statusLabel.text = @"Status: Error";
-                statusLabel.textColor = [UIColor redColor];
-            }
-            else{
-                statusLabel.text = @"Status: OK";
-                statusLabel.textColor = [UIColor greenColor];
-            }
-            [loadingSpinner stopProgress];
-        });
-    }];
-}
+    }
 
-- (void) getButtonClicked:(UIButton*)sender{
-    [loadingSpinner startProgress];
-    [[WeatherRetriever sharedInstance] getWeatherForLatitude:35 :30 :^(WAOpenWeatherModel *weather, NSString *responseAsString) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-            responseLabel.text = responseAsString;
-            [NSThread sleepForTimeInterval:2];
-            if(!weather)
-            {
-                statusLabel.text = @"Status: Error";
-                statusLabel.textColor = [UIColor redColor];
-            }
-            else{
-                statusLabel.text = @"Status: OK";
-                statusLabel.textColor = [UIColor greenColor];
-            }
-            [loadingSpinner stopProgress];
-        });
-    }];
-}
+- (void) getButtonClicked:(UIButton*)sender{}
 
 - (void) postButtonClicked:(UIButton*)sender{
-    [loadingSpinner startProgress];
-    [[WeatherRetriever sharedInstance] makePostCallWithCustomCompletion:^(NSString *responseAsString, NSError *error) {
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            responseLabel.text = responseAsString;
-            [NSThread sleepForTimeInterval:2];
-            if(error)
-            {
-                statusLabel.text = @"Status: Error";
-                statusLabel.textColor = [UIColor redColor];
-            }
-            else{
-                statusLabel.text = @"Status: OK";
-                statusLabel.textColor = [UIColor greenColor];
-            }
-            [loadingSpinner stopProgress];
-        });
-    }];
 }
 
 /*

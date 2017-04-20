@@ -165,6 +165,7 @@ static void *currentWeatherContext = &currentWeatherContext;
                                                 :^(WAOpenWeatherModel* weather, NSString* responseAsString){
                                                     [self updateUIWithNewData: weather];
                                                    }];
+    
 }
 
 - (void) addAnimationToWeatherLabels{

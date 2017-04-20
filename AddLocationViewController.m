@@ -7,6 +7,7 @@
 //
 
 #import "AddLocationViewController.h"
+#import <ReactiveObjC/ReactiveObjC.h>
 
 @interface AddLocationViewController ()
 @end
@@ -16,6 +17,12 @@ NSMutableArray<WACityModel*> *selectedLocations;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.activtyIndicator = [[CustomActivityIndicator alloc]init];
+    [self.view addSubview:self.activtyIndicator];
+    [self.activtyIndicator mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.and.bottom.mas_equalTo(self.view);
+    }];
+    [self.activtyIndicator startProgress];
     availableLocations = [[NSMutableArray alloc]init];
     filteredLocations = [[NSMutableArray alloc] init];
     [self initializeListOfAvailableLocations];
@@ -27,8 +34,7 @@ NSMutableArray<WACityModel*> *selectedLocations;
 {
     selectedLocations = [[NSMutableArray alloc] initWithArray:[WAUserDefaults getArrayFromFile:SelectedLocationsKey]];
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
+    RACSignal *getLocationFromFileSignal = [RACSignal startEagerlyWithScheduler:[RACScheduler scheduler] block:^(id<RACSubscriber>  _Nonnull subscriber) {
         NSString *filePath = [[NSBundle mainBundle]pathForResource:@"city.list" ofType:@"json"];
         NSString *jsonAsString = [[NSString alloc]initWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:NULL];
         NSData *data = [jsonAsString dataUsingEncoding:NSUTF8StringEncoding];
@@ -47,11 +53,15 @@ NSMutableArray<WACityModel*> *selectedLocations;
             }
             [availableLocations addObject:model];
         }
+        [subscriber sendCompleted];
+    }];
+    
+    [getLocationFromFileSignal subscribeCompleted:^{
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.activtyIndicator stopProgress];
             [self.tableView reloadData];
         });
-    });
+    }];
 }
 
 
