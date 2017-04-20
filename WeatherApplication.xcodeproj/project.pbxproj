@@ -37,6 +37,8 @@
 		999C2B0E1E6DA59000990C90 /* WAAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 999C2B0D1E6DA59000990C90 /* WAAnnotationView.m */; };
 		99A6A0A51EA762E30098C41E /* DynamicTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A6A0A31EA762E30098C41E /* DynamicTypeViewController.m */; };
 		99A6A0A61EA762E30098C41E /* DynamicTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99A6A0A41EA762E30098C41E /* DynamicTypeViewController.xib */; };
+		99A6A0FC1EA8A3C50098C41E /* ReactiveObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99A6A0EA1EA89F9E0098C41E /* ReactiveObjC.framework */; };
+		99A6A0FD1EA8A3C90098C41E /* ReactiveObjC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 99A6A0EA1EA89F9E0098C41E /* ReactiveObjC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		99C618A61E82A5820010B4DF /* WACityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C618A51E82A5820010B4DF /* WACityModel.m */; };
 		99CD01A71E8299A5007818D0 /* AddLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CD01A51E8299A5007818D0 /* AddLocationViewController.m */; };
 		99CD01A81E8299A5007818D0 /* AddLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99CD01A61E8299A5007818D0 /* AddLocationViewController.xib */; };
@@ -73,6 +75,62 @@
 			remoteGlobalIDString = 3AED05B61AD59FD40053CC65;
 			remoteInfo = "Masonry iOS";
 		};
+		99A6A0E51EA89F9E0098C41E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 99A6A0DB1EA89F9E0098C41E /* ReactiveObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D04725EA19E49ED7006002AA;
+			remoteInfo = "ReactiveObjC-macOS";
+		};
+		99A6A0E71EA89F9E0098C41E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 99A6A0DB1EA89F9E0098C41E /* ReactiveObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D04725F519E49ED7006002AA;
+			remoteInfo = "ReactiveObjC-macOSTests";
+		};
+		99A6A0E91EA89F9E0098C41E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 99A6A0DB1EA89F9E0098C41E /* ReactiveObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D047260C19E49F82006002AA;
+			remoteInfo = "ReactiveObjC-iOS";
+		};
+		99A6A0EB1EA89F9E0098C41E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 99A6A0DB1EA89F9E0098C41E /* ReactiveObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D047261619E49F82006002AA;
+			remoteInfo = "ReactiveObjC-iOSTests";
+		};
+		99A6A0ED1EA89F9E0098C41E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 99A6A0DB1EA89F9E0098C41E /* ReactiveObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A9B315541B3940610001CB9C;
+			remoteInfo = "ReactiveObjC-watchOS";
+		};
+		99A6A0EF1EA89F9E0098C41E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 99A6A0DB1EA89F9E0098C41E /* ReactiveObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 57A4D2411BA13D7A00F7D4B1;
+			remoteInfo = "ReactiveObjC-tvOS";
+		};
+		99A6A0F11EA89F9E0098C41E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 99A6A0DB1EA89F9E0098C41E /* ReactiveObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7DFBED031CDB8C9500EE435B;
+			remoteInfo = "ReactiveObjC-tvOSTests";
+		};
+		99A6A0F41EA8A0090098C41E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 99A6A0DB1EA89F9E0098C41E /* ReactiveObjC.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D047260B19E49F82006002AA;
+			remoteInfo = "ReactiveObjC-iOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -82,6 +140,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				99A6A0FD1EA8A3C90098C41E /* ReactiveObjC.framework in Embed Frameworks */,
 				990785851E9230AC003C7FBE /* Masonry.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -143,6 +202,7 @@
 		99A6A0A21EA762E30098C41E /* DynamicTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicTypeViewController.h; sourceTree = "<group>"; };
 		99A6A0A31EA762E30098C41E /* DynamicTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicTypeViewController.m; sourceTree = "<group>"; };
 		99A6A0A41EA762E30098C41E /* DynamicTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DynamicTypeViewController.xib; sourceTree = "<group>"; };
+		99A6A0DB1EA89F9E0098C41E /* ReactiveObjC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactiveObjC.xcodeproj; path = ReactiveCocoa/ReactiveObjC.xcodeproj; sourceTree = "<group>"; };
 		99C618A41E82A5820010B4DF /* WACityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WACityModel.h; sourceTree = "<group>"; };
 		99C618A51E82A5820010B4DF /* WACityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WACityModel.m; sourceTree = "<group>"; };
 		99CD01A41E8299A5007818D0 /* AddLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddLocationViewController.h; sourceTree = "<group>"; };
@@ -158,6 +218,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99A6A0FC1EA8A3C50098C41E /* ReactiveObjC.framework in Frameworks */,
 				990785841E9230AC003C7FBE /* Masonry.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,6 +288,7 @@
 		999C2AD01E6D764100990C90 = {
 			isa = PBXGroup;
 			children = (
+				99A6A0DB1EA89F9E0098C41E /* ReactiveObjC.xcodeproj */,
 				993293901E9FA4F30015DD0B /* ComposeBar */,
 				990785791E923083003C7FBE /* Masonry.xcodeproj */,
 				999C2ADB1E6D764100990C90 /* WeatherApplication */,
@@ -289,6 +351,20 @@
 			name = CustomControls;
 			sourceTree = "<group>";
 		};
+		99A6A0DC1EA89F9E0098C41E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				99A6A0E61EA89F9E0098C41E /* ReactiveObjC.framework */,
+				99A6A0E81EA89F9E0098C41E /* ReactiveObjCTests.xctest */,
+				99A6A0EA1EA89F9E0098C41E /* ReactiveObjC.framework */,
+				99A6A0EC1EA89F9E0098C41E /* ReactiveObjCTests.xctest */,
+				99A6A0EE1EA89F9E0098C41E /* ReactiveObjC.framework */,
+				99A6A0F01EA89F9E0098C41E /* ReactiveObjC.framework */,
+				99A6A0F21EA89F9E0098C41E /* ReactiveObjCTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		99AB8CC61E6FDEAA00324A5F /* LocalFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,6 +412,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				99A6A0F51EA8A0090098C41E /* PBXTargetDependency */,
 				990785831E92309C003C7FBE /* PBXTargetDependency */,
 				990785871E9230AC003C7FBE /* PBXTargetDependency */,
 			);
@@ -379,6 +456,10 @@
 					ProductGroup = 9907857A1E923083003C7FBE /* Products */;
 					ProjectRef = 990785791E923083003C7FBE /* Masonry.xcodeproj */;
 				},
+				{
+					ProductGroup = 99A6A0DC1EA89F9E0098C41E /* Products */;
+					ProjectRef = 99A6A0DB1EA89F9E0098C41E /* ReactiveObjC.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -400,6 +481,55 @@
 			fileType = wrapper.framework;
 			path = Masonry.framework;
 			remoteRef = 990785801E923084003C7FBE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		99A6A0E61EA89F9E0098C41E /* ReactiveObjC.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ReactiveObjC.framework;
+			remoteRef = 99A6A0E51EA89F9E0098C41E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		99A6A0E81EA89F9E0098C41E /* ReactiveObjCTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ReactiveObjCTests.xctest;
+			remoteRef = 99A6A0E71EA89F9E0098C41E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		99A6A0EA1EA89F9E0098C41E /* ReactiveObjC.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ReactiveObjC.framework;
+			remoteRef = 99A6A0E91EA89F9E0098C41E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		99A6A0EC1EA89F9E0098C41E /* ReactiveObjCTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ReactiveObjCTests.xctest;
+			remoteRef = 99A6A0EB1EA89F9E0098C41E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		99A6A0EE1EA89F9E0098C41E /* ReactiveObjC.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ReactiveObjC.framework;
+			remoteRef = 99A6A0ED1EA89F9E0098C41E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		99A6A0F01EA89F9E0098C41E /* ReactiveObjC.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ReactiveObjC.framework;
+			remoteRef = 99A6A0EF1EA89F9E0098C41E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		99A6A0F21EA89F9E0098C41E /* ReactiveObjCTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ReactiveObjCTests.xctest;
+			remoteRef = 99A6A0F11EA89F9E0098C41E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -467,6 +597,11 @@
 			isa = PBXTargetDependency;
 			name = "Masonry iOS";
 			targetProxy = 990785861E9230AC003C7FBE /* PBXContainerItemProxy */;
+		};
+		99A6A0F51EA8A0090098C41E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ReactiveObjC-iOS";
+			targetProxy = 99A6A0F41EA8A0090098C41E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

@@ -5,6 +5,7 @@
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
     "8DBBA4E01D4E171B35866610ACEAACAB4FFCFC27" : 9223372036854775807,
+    "51B210D0D41486D3ADD6940D57E4480BBD4DE4C5" : 9223372036854775807,
     "AD864E20AF66978643C07432366F1DDAE6CB241E" : 9223372036854775807,
     "DD20A1A48C66B5213E0FEBB87A95EF51D6C6F3E8" : 9223372036854775807,
     "6FC4832245A6A8E50F2A782F20A8B58A46BD1FEB" : 9223372036854775807
@@ -12,6 +13,7 @@
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "8D2E2B8A-A9EA-4AB9-9398-F3A551F5E02E",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "8DBBA4E01D4E171B35866610ACEAACAB4FFCFC27" : "WeatherApplication\/ComposeBar\/",
+    "51B210D0D41486D3ADD6940D57E4480BBD4DE4C5" : "WeatherApplication\/ReactiveCocoa\/",
     "AD864E20AF66978643C07432366F1DDAE6CB241E" : "WeatherApplication\/",
     "DD20A1A48C66B5213E0FEBB87A95EF51D6C6F3E8" : "WeatherApplication\/AFNetworking\/",
     "6FC4832245A6A8E50F2A782F20A8B58A46BD1FEB" : "WeatherApplication\/Masonry\/"
@@ -20,6 +22,11 @@
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
   "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "WeatherApplication.xcworkspace",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ReactiveCocoa\/ReactiveCocoa.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "51B210D0D41486D3ADD6940D57E4480BBD4DE4C5"
+    },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SnapKit\/Masonry.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
