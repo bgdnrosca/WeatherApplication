@@ -7,9 +7,12 @@
 //
 
 #import "ListViewController.h"
+#import "WATableViewCell.h"
+
 
 @interface ListViewController ()
 @property (strong, nonatomic) NSMutableArray *tableData;
+@property (strong, nonatomic) WeatherRetriever *weatherRetriever;
 - (NSArray<WAOpenWeatherModel*>*) processHourlyResponse: (WAOpenWeatherHourlyModel*) hourlyModel;
 @end
 

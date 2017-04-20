@@ -10,8 +10,12 @@
 #import "WAPointAnnotation.h"
 #import "WAAnnotationView.h"
 #import "ObjectiveCViewController.h"
-#import <Masonry/Masonry.h>
 #import "BluetoothClientViewController.h"
+#import "DynamicTypeViewController.h"
+#import "AddLocationViewController.h"
+#import "CustomControls.h"
+#import <ReactiveObjC/ReactiveObjC.h>
+#import <Masonry/Masonry.h>
 
 @interface MapViewController ()
 - (void) updateUIWithNewData:(WAOpenWeatherModel*)model;

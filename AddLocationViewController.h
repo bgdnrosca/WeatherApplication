@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "WAUtil.h"
 #import "WANet.h"
-#import "CustomActivityIndicator.h"
 
 @interface AddLocationViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
     NSMutableArray<WACityModel*> *availableLocations;
@@ -19,5 +18,4 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (strong, nonatomic) IBOutlet CustomActivityIndicator *activtyIndicator;
 @end

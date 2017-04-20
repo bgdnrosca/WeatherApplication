@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CustomActivityIndicator.h"
 
 @interface ObjectiveCViewController : UIViewController
 

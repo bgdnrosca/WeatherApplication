@@ -7,9 +7,11 @@
 //
 
 #import "AddLocationViewController.h"
+#import "CustomActivityIndicator.h"
 #import <ReactiveObjC/ReactiveObjC.h>
 
 @interface AddLocationViewController ()
+@property (strong, nonatomic) IBOutlet CustomActivityIndicator *activtyIndicator;
 @end
 
 @implementation AddLocationViewController

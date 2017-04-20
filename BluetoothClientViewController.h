@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreBluetooth/CoreBluetooth.h>
-#import "Constants.h"
 #import "PHFComposeBarView.h"
 @interface BluetoothClientViewController : UIViewController<CBCentralManagerDelegate, CBPeripheralDelegate, CBPeripheralManagerDelegate, PHFComposeBarViewDelegate>
 

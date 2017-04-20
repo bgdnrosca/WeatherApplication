@@ -6,8 +6,9 @@
 //  Copyright © 2017 Rosca, Bogdan. All rights reserved.
 //
 #import "BluetoothClientViewController.h"
-#import <Masonry/Masonry.h>
 #import "CustomActivityIndicator.h"
+#import "Constants.h"
+#import <Masonry/Masonry.h>
 
 @interface BluetoothClientViewController ()
 - (void) initializeViewComponents;

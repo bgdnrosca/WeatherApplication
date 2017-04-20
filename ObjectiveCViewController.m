@@ -7,9 +7,11 @@
 //
 
 #import "ObjectiveCViewController.h"
+#import "WeatherRetriever.h"
+#import "CustomActivityIndicator.h"
 #import <Masonry/Masonry.h>
 #import <ReactiveObjC/ReactiveObjC.h>
-#import "WeatherRetriever.h"
+
 @interface ObjectiveCViewController ()
 - (void) postButtonClicked:(UIButton*)sender;
 - (void) putButtonClicked:(UIButton*)sender;

@@ -10,10 +10,6 @@
 #import <MapKit/MapKit.h>
 #import "WANet.h"
 #import "WAUtil.h"
-#import "AddLocationViewController.h"
-#import "CustomControls.h"
-#import "DynamicTypeViewController.h"
-#import <ReactiveObjC/ReactiveObjC.h>
 
 @interface MapViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate, WALocationDelegate>
 @property (strong, nonatomic) CLLocationManager *locationManager;
